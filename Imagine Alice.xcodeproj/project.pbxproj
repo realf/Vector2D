@@ -66,6 +66,7 @@
 		04FF96D515D2174200C46F7C /* CocoaLumberjackCustomFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B2998C391441D682F98D3D /* libPods.a */; };
 		6E6FDB54914D4EB8B24C4A6B /* libPods-IARuleEngineTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDBFFFA2781248E8A356B602 /* libPods-IARuleEngineTests.a */; };
+		75168FCB1620FB9B00A4FED1 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 75168FCA1620FB9B00A4FED1 /* Vector2D.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,8 @@
 		04FF96D315D2174200C46F7C /* CocoaLumberjackCustomFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjackCustomFormatter.h; sourceTree = "<group>"; };
 		04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaLumberjackCustomFormatter.m; sourceTree = "<group>"; };
 		6C5C0FC330654685B5035F37 /* Pods-IARuleEngineTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IARuleEngineTests.xcconfig"; path = "Pods/Pods-IARuleEngineTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		75168FC91620FB9B00A4FED1 /* Vector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
+		75168FCA1620FB9B00A4FED1 /* Vector2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector2D.m; sourceTree = "<group>"; };
 		A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		BDBFFFA2781248E8A356B602 /* libPods-IARuleEngineTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IARuleEngineTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6B2998C391441D682F98D3D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,6 +258,8 @@
 		041C976B15CF4A5700E70EFC /* Imagine Alice */ = {
 			isa = PBXGroup;
 			children = (
+				75168FC91620FB9B00A4FED1 /* Vector2D.h */,
+				75168FCA1620FB9B00A4FED1 /* Vector2D.m */,
 				040AF39815D761000046A0B5 /* IAAbsolutePosition.h */,
 				040AF39915D761000046A0B5 /* IAAbsolutePosition.m */,
 				041C977415CF4A5700E70EFC /* IAAppDelegate.h */,
@@ -649,6 +654,7 @@
 				043C63781605FC2700763717 /* IAHistory.m in Sources */,
 				043C637B1606002B00763717 /* IABoardPosition.m in Sources */,
 				045F233E160BCD030036E399 /* IARuleEngine.m in Sources */,
+				75168FCB1620FB9B00A4FED1 /* Vector2D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
