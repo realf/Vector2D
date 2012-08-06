@@ -1,0 +1,280 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		041C976615CF4A5700E70EFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
+		041C976815CF4A5700E70EFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976715CF4A5700E70EFC /* Foundation.framework */; };
+		041C976A15CF4A5700E70EFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976915CF4A5700E70EFC /* CoreGraphics.framework */; };
+		041C977015CF4A5700E70EFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 041C976E15CF4A5700E70EFC /* InfoPlist.strings */; };
+		041C977215CF4A5700E70EFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977115CF4A5700E70EFC /* main.m */; };
+		041C977615CF4A5700E70EFC /* IAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977515CF4A5700E70EFC /* IAAppDelegate.m */; };
+		041C977915CF4A5800E70EFC /* IAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977815CF4A5800E70EFC /* IAViewController.m */; };
+		041C977C15CF4A5800E70EFC /* IAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041C977A15CF4A5800E70EFC /* IAViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		041C976115CF4A5700E70EFC /* Imagine Alice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Imagine Alice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		041C976515CF4A5700E70EFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		041C976715CF4A5700E70EFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		041C976915CF4A5700E70EFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		041C976D15CF4A5700E70EFC /* Imagine Alice-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Imagine Alice-Info.plist"; sourceTree = "<group>"; };
+		041C976F15CF4A5700E70EFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		041C977115CF4A5700E70EFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		041C977315CF4A5700E70EFC /* Imagine Alice-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Imagine Alice-Prefix.pch"; sourceTree = "<group>"; };
+		041C977415CF4A5700E70EFC /* IAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAAppDelegate.h; sourceTree = "<group>"; };
+		041C977515CF4A5700E70EFC /* IAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAAppDelegate.m; sourceTree = "<group>"; };
+		041C977715CF4A5700E70EFC /* IAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAViewController.h; sourceTree = "<group>"; };
+		041C977815CF4A5800E70EFC /* IAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAViewController.m; sourceTree = "<group>"; };
+		041C977B15CF4A5800E70EFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IAViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		041C975E15CF4A5700E70EFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041C976615CF4A5700E70EFC /* UIKit.framework in Frameworks */,
+				041C976815CF4A5700E70EFC /* Foundation.framework in Frameworks */,
+				041C976A15CF4A5700E70EFC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		041C975615CF4A5700E70EFC = {
+			isa = PBXGroup;
+			children = (
+				041C976B15CF4A5700E70EFC /* Imagine Alice */,
+				041C976415CF4A5700E70EFC /* Frameworks */,
+				041C976215CF4A5700E70EFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		041C976215CF4A5700E70EFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				041C976115CF4A5700E70EFC /* Imagine Alice.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		041C976415CF4A5700E70EFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				041C976515CF4A5700E70EFC /* UIKit.framework */,
+				041C976715CF4A5700E70EFC /* Foundation.framework */,
+				041C976915CF4A5700E70EFC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		041C976B15CF4A5700E70EFC /* Imagine Alice */ = {
+			isa = PBXGroup;
+			children = (
+				041C977415CF4A5700E70EFC /* IAAppDelegate.h */,
+				041C977515CF4A5700E70EFC /* IAAppDelegate.m */,
+				041C977715CF4A5700E70EFC /* IAViewController.h */,
+				041C977815CF4A5800E70EFC /* IAViewController.m */,
+				041C977A15CF4A5800E70EFC /* IAViewController.xib */,
+				041C976C15CF4A5700E70EFC /* Supporting Files */,
+			);
+			path = "Imagine Alice";
+			sourceTree = "<group>";
+		};
+		041C976C15CF4A5700E70EFC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				041C976D15CF4A5700E70EFC /* Imagine Alice-Info.plist */,
+				041C976E15CF4A5700E70EFC /* InfoPlist.strings */,
+				041C977115CF4A5700E70EFC /* main.m */,
+				041C977315CF4A5700E70EFC /* Imagine Alice-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		041C976015CF4A5700E70EFC /* Imagine Alice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 041C977F15CF4A5800E70EFC /* Build configuration list for PBXNativeTarget "Imagine Alice" */;
+			buildPhases = (
+				041C975D15CF4A5700E70EFC /* Sources */,
+				041C975E15CF4A5700E70EFC /* Frameworks */,
+				041C975F15CF4A5700E70EFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Imagine Alice";
+			productName = "Imagine Alice";
+			productReference = 041C976115CF4A5700E70EFC /* Imagine Alice.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		041C975815CF4A5700E70EFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "imagine-alice.org";
+			};
+			buildConfigurationList = 041C975B15CF4A5700E70EFC /* Build configuration list for PBXProject "Imagine Alice" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 041C975615CF4A5700E70EFC;
+			productRefGroup = 041C976215CF4A5700E70EFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				041C976015CF4A5700E70EFC /* Imagine Alice */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		041C975F15CF4A5700E70EFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041C977015CF4A5700E70EFC /* InfoPlist.strings in Resources */,
+				041C977C15CF4A5800E70EFC /* IAViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		041C975D15CF4A5700E70EFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041C977215CF4A5700E70EFC /* main.m in Sources */,
+				041C977615CF4A5700E70EFC /* IAAppDelegate.m in Sources */,
+				041C977915CF4A5800E70EFC /* IAViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		041C976E15CF4A5700E70EFC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				041C976F15CF4A5700E70EFC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		041C977A15CF4A5800E70EFC /* IAViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				041C977B15CF4A5800E70EFC /* en */,
+			);
+			name = IAViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		041C977D15CF4A5800E70EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		041C977E15CF4A5800E70EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		041C978015CF4A5800E70EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Imagine Alice/Imagine Alice-Prefix.pch";
+				INFOPLIST_FILE = "Imagine Alice/Imagine Alice-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		041C978115CF4A5800E70EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Imagine Alice/Imagine Alice-Prefix.pch";
+				INFOPLIST_FILE = "Imagine Alice/Imagine Alice-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		041C975B15CF4A5700E70EFC /* Build configuration list for PBXProject "Imagine Alice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				041C977D15CF4A5800E70EFC /* Debug */,
+				041C977E15CF4A5800E70EFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		041C977F15CF4A5800E70EFC /* Build configuration list for PBXNativeTarget "Imagine Alice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				041C978015CF4A5800E70EFC /* Debug */,
+				041C978115CF4A5800E70EFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 041C975815CF4A5700E70EFC /* Project object */;
+}
