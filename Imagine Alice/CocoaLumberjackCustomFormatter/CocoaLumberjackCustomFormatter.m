@@ -22,7 +22,8 @@
         if (threadUnsafeDateFormatter == nil)
         {   
             threadUnsafeDateFormatter = [[NSDateFormatter alloc] init];
-            NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"hhmmssSSSEdMMMYYYY" options:0
+            NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"hhmmssSSSEdMMMYYYY" 
+                                                                     options:0
                                                                       locale:[NSLocale currentLocale]];
             [threadUnsafeDateFormatter setDateFormat:formatString];
         }
@@ -66,11 +67,14 @@
     
     NSString *dateAndTime = [self stringFromDate:(logMessage->timestamp)];
     NSString *logMsg = logMessage->logMsg;
-    NSString *file = [NSString stringWithCString:logMessage->file encoding:NSASCIIStringEncoding];
+    NSString *file = [NSString stringWithCString:logMessage->file 
+                                        encoding:NSASCIIStringEncoding];
     NSString *lineNumber = [NSString stringWithFormat:@"%@", [NSNumber numberWithInt:logMessage->lineNumber]];
-    NSString *function = [NSString stringWithCString:logMessage->function encoding:NSASCIIStringEncoding];
+    NSString *function = [NSString stringWithCString:logMessage->function 
+                                            encoding:NSASCIIStringEncoding];
     
-    return [NSString stringWithFormat:@"%@ %@, file: %@, line %@: %@ | %@\n", logLevel, dateAndTime, file, lineNumber, function, logMsg];
+    return [NSString stringWithFormat:@"%@ %@, file: %@, line %@: %@ | %@\n", 
+            logLevel, dateAndTime, file, lineNumber, function, logMsg];
 }
 
 - (void)didAddToLogger:(id <DDLogger>)logger
