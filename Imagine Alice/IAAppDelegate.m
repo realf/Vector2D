@@ -9,6 +9,9 @@
 #import "IAAppDelegate.h"
 
 #import "IAViewController.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
+#import "CocoaLumberjackCustomFormatter.h"
 
 @implementation IAAppDelegate
 
@@ -24,6 +27,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    CocoaLumberjackCustomFormatter *customFormatter = [[CocoaLumberjackCustomFormatter alloc] init];
+    [[DDTTYLogger sharedInstance] setLogFormatter:customFormatter];
+    [customFormatter release];
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.viewController = [[[IAViewController alloc] initWithNibName:@"IAViewController" bundle:nil] autorelease];
