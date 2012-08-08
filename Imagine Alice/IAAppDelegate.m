@@ -27,6 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Set loggers. Tesflight will be inited here.
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     CocoaLumberjackCustomFormatter *customFormatter = [[CocoaLumberjackCustomFormatter alloc] init];
