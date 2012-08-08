@@ -1,0 +1,5 @@
+PODS:
+  - CocoaLumberjack (1.6)
+
+DEPENDENCIES:
+  - CocoaLumberjack (~> 1.6)

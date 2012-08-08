@@ -15,13 +15,14 @@
 		041C977615CF4A5700E70EFC /* IAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977515CF4A5700E70EFC /* IAAppDelegate.m */; };
 		041C977915CF4A5800E70EFC /* IAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977815CF4A5800E70EFC /* IAViewController.m */; };
 		041C977C15CF4A5800E70EFC /* IAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041C977A15CF4A5800E70EFC /* IAViewController.xib */; };
+		3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B2998C391441D682F98D3D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		041C976115CF4A5700E70EFC /* Imagine Alice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Imagine Alice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		041C976515CF4A5700E70EFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		041C976715CF4A5700E70EFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		041C976915CF4A5700E70EFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		041C976515CF4A5700E70EFC /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		041C976715CF4A5700E70EFC /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		041C976915CF4A5700E70EFC /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		041C976D15CF4A5700E70EFC /* Imagine Alice-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Imagine Alice-Info.plist"; sourceTree = "<group>"; };
 		041C976F15CF4A5700E70EFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		041C977115CF4A5700E70EFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -31,6 +32,8 @@
 		041C977715CF4A5700E70EFC /* IAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAViewController.h; sourceTree = "<group>"; };
 		041C977815CF4A5800E70EFC /* IAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAViewController.m; sourceTree = "<group>"; };
 		041C977B15CF4A5800E70EFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IAViewController.xib; sourceTree = "<group>"; };
+		A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		E6B2998C391441D682F98D3D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +44,7 @@
 				041C976615CF4A5700E70EFC /* UIKit.framework in Frameworks */,
 				041C976815CF4A5700E70EFC /* Foundation.framework in Frameworks */,
 				041C976A15CF4A5700E70EFC /* CoreGraphics.framework in Frameworks */,
+				3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +57,7 @@
 				041C976B15CF4A5700E70EFC /* Imagine Alice */,
 				041C976415CF4A5700E70EFC /* Frameworks */,
 				041C976215CF4A5700E70EFC /* Products */,
+				A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +75,7 @@
 				041C976515CF4A5700E70EFC /* UIKit.framework */,
 				041C976715CF4A5700E70EFC /* Foundation.framework */,
 				041C976915CF4A5700E70EFC /* CoreGraphics.framework */,
+				E6B2998C391441D682F98D3D /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -108,6 +114,7 @@
 				041C975D15CF4A5700E70EFC /* Sources */,
 				041C975E15CF4A5700E70EFC /* Frameworks */,
 				041C975F15CF4A5700E70EFC /* Resources */,
+				78C8EB6A73FA42808FB351DB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,6 +162,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78C8EB6A73FA42808FB351DB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		041C975D15CF4A5700E70EFC /* Sources */ = {
@@ -234,6 +258,7 @@
 		};
 		041C978015CF4A5800E70EFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Imagine Alice/Imagine Alice-Prefix.pch";
@@ -245,6 +270,7 @@
 		};
 		041C978115CF4A5800E70EFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Imagine Alice/Imagine Alice-Prefix.pch";
@@ -273,6 +299,7 @@
 				041C978115CF4A5800E70EFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
