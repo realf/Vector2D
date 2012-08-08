@@ -14,5 +14,5 @@ If you do not have **CocoaPods**, you should install it, following the next step
 
 **To build the app**, type in Terminal:  
 0. `pod install` # We use CocoaPods so we can properly update our dependencies now. It sets necessary targets, etc.  
-1. `open Imagine Alice.xcworkspace` # Use it instead of open Imagine Alice.xcodeproj  
+1. `open Imagine\ Alice.xcworkspace` # Use it instead of open Imagine Alice.xcodeproj  
 2. Build the app in Xcode, as usually.
