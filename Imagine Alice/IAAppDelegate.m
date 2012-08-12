@@ -33,7 +33,6 @@
     CocoaLumberjackCustomFormatter *customFormatter = [[CocoaLumberjackCustomFormatter alloc] init];
     [[DDTTYLogger sharedInstance] setLogFormatter:customFormatter];
     [customFormatter release];
-    srand((unsigned int)time(NULL));
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.

@@ -62,7 +62,7 @@
     NSArray *legalMoves = [self legalMovesForPosition:position onTheBoardWithWidth:width height:height];
     NSUInteger numberOfLegalMoves = [legalMoves count];
     NSAssert(numberOfLegalMoves > 0, @"Cannot make a legal move");
-    NSInteger randomMoveNumber = (NSInteger)(((numberOfLegalMoves - 1) * random()) / (RAND_MAX + 1.0));
+    NSInteger randomMoveNumber = arc4random_uniform(numberOfLegalMoves);
     NSAssert(randomMoveNumber >= 0 && randomMoveNumber < numberOfLegalMoves, @"randomMoveNumber is out of range");
     IAPosition *nextPosition = [[[IAPosition alloc] init] autorelease];
     nextPosition.x = position.x + [[legalMoves objectAtIndex:randomMoveNumber] deltaX];
