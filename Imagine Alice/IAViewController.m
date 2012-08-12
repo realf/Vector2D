@@ -7,8 +7,101 @@
 //
 
 #import "IAViewController.h"
+#import "IAMoveEngine.h"
+#import "DDLog.h"
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
+@interface IAViewController()
+
+@property (retain, nonatomic) IAPosition *alicePosition;
+@property (assign, nonatomic) BOOL aliceCanGo;
+@property (assign, nonatomic) NSUInteger boardWidth;
+@property (assign, nonatomic) NSUInteger boardHeight;
+@property (retain, nonatomic) IAMoveEngine *moveEngine;
+@property (retain, nonatomic) IBOutlet UILabel *screen;
+
+@end
+
 
 @implementation IAViewController
+
+@synthesize alicePosition = _alicePosition;
+@synthesize aliceCanGo = _aliceCanGo;
+@synthesize boardWidth = _boardWidth;
+@synthesize boardHeight = _boardHeight;
+@synthesize screen = _screen;
+@synthesize moveEngine = _moveEngine;
+
+- (IAMoveEngine *)moveEngine
+{
+    if (nil == _moveEngine)
+    {
+        _moveEngine = [[IAMoveEngine alloc] init];
+    }
+    
+    return _moveEngine;
+}
+
+- (IAPosition *)alicePosition
+{
+    if (nil == _alicePosition)
+    {
+        _alicePosition = [[IAPosition alloc] init];
+    }
+    
+    return _alicePosition;
+}
+
+- (void)resetGame
+{
+    self.boardWidth = 3;
+    self.boardHeight = 3;
+    self.alicePosition.x = self.boardWidth / 2;
+    self.alicePosition.y = self.boardHeight / 2;
+    [self.screen setText:[NSString stringWithFormat:@"Let's play! Alice is at (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
+    self.aliceCanGo = YES;
+}
+
+- (IBAction)directionButtonPressed:(UIButton *)sender 
+{
+    if (YES == self.aliceCanGo)
+    {
+        if ([[sender currentTitle] isEqualToString:@"Up"])
+            self.alicePosition.y++;
+        else if ([[sender currentTitle] isEqualToString:@"Down"])
+            self.alicePosition.y--;
+        else if ([[sender currentTitle] isEqualToString:@"Right"])
+            self.alicePosition.x++;
+        else if ([[sender currentTitle] isEqualToString:@"Left"])
+            self.alicePosition.x--;
+        
+        // If Alice is inside the board
+        if (YES == [self.moveEngine isPosition:self.alicePosition insideTheBoardWithWidth:self.boardWidth height:self.boardHeight])
+        {
+            // Show Alice position 
+            // [self.screen setText:[NSString stringWithFormat:@"Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
+            DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
+            
+            // Let the computer make his move
+            IAPosition *nextAlicePosition = [self.moveEngine makeRandomMoveFromPosition:self.alicePosition onTheBoardWithWidth:self.boardWidth height:self.boardHeight];
+            [self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
+            self.alicePosition = nextAlicePosition;             
+            DDLogInfo(@"%@", [NSString stringWithFormat:@"iPhone moves Alice to (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
+        }
+        else
+        {
+            [self.screen setText:[NSString stringWithFormat:@"Game over! Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
+            DDLogInfo(@"%@", [NSString stringWithFormat:@"Game over! Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
+            self.aliceCanGo = NO;
+        }
+    }
+}
+
+- (IBAction)newGameButtonPressed:(UIButton *)sender
+{
+    [self resetGame];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -20,12 +113,14 @@
 
 - (void)viewDidLoad
 {
+    [self resetGame];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
 {
+    [self setScreen:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -57,4 +152,10 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (void)dealloc {
+    [_alicePosition release];
+    [_screen release];
+    [_moveEngine release];
+    [super dealloc];
+}
 @end
