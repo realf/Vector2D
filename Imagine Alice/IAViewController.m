@@ -10,7 +10,11 @@
 #import "IAMoveEngine.h"
 #import "DDLog.h"
 
+#ifdef DEBUG
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_ERROR;
+#endif
 
 @interface IAViewController()
 
@@ -60,6 +64,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.alicePosition.x = self.boardWidth / 2;
     self.alicePosition.y = self.boardHeight / 2;
     [self.screen setText:[NSString stringWithFormat:@"Let's play! Alice is at (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
+    DDLogInfo(@"%@", [NSString stringWithFormat:@"Let's play! Alice is at (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
     self.aliceCanGo = YES;
 }
 
@@ -85,7 +90,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             
             // Let the computer make his move
             IAPosition *nextAlicePosition = [self.moveEngine makeRandomMoveFromPosition:self.alicePosition onTheBoardWithWidth:self.boardWidth height:self.boardHeight];
-            [self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
+            [self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice by (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
             self.alicePosition = nextAlicePosition;             
             DDLogInfo(@"%@", [NSString stringWithFormat:@"iPhone moves Alice to (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
         }
