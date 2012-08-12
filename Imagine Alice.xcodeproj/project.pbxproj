@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040AF38315D711560046A0B5 /* IAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040AF38115D711560046A0B5 /* IAViewController.xib */; };
 		041C976615CF4A5700E70EFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
 		041C976815CF4A5700E70EFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976715CF4A5700E70EFC /* Foundation.framework */; };
 		041C976A15CF4A5700E70EFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976915CF4A5700E70EFC /* CoreGraphics.framework */; };
@@ -14,12 +15,12 @@
 		041C977215CF4A5700E70EFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977115CF4A5700E70EFC /* main.m */; };
 		041C977615CF4A5700E70EFC /* IAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977515CF4A5700E70EFC /* IAAppDelegate.m */; };
 		041C977915CF4A5800E70EFC /* IAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977815CF4A5800E70EFC /* IAViewController.m */; };
-		041C977C15CF4A5800E70EFC /* IAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041C977A15CF4A5800E70EFC /* IAViewController.xib */; };
 		04FF96D515D2174200C46F7C /* CocoaLumberjackCustomFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */; };
 		3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B2998C391441D682F98D3D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040AF38215D711560046A0B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IAViewController.xib; sourceTree = "<group>"; };
 		041C976115CF4A5700E70EFC /* Imagine Alice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Imagine Alice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		041C976515CF4A5700E70EFC /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		041C976715CF4A5700E70EFC /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -32,7 +33,6 @@
 		041C977515CF4A5700E70EFC /* IAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAAppDelegate.m; sourceTree = "<group>"; };
 		041C977715CF4A5700E70EFC /* IAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAViewController.h; sourceTree = "<group>"; };
 		041C977815CF4A5800E70EFC /* IAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAViewController.m; sourceTree = "<group>"; };
-		041C977B15CF4A5800E70EFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IAViewController.xib; sourceTree = "<group>"; };
 		04FF96D315D2174200C46F7C /* CocoaLumberjackCustomFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjackCustomFormatter.h; sourceTree = "<group>"; };
 		04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaLumberjackCustomFormatter.m; sourceTree = "<group>"; };
 		A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -91,7 +91,7 @@
 				041C977515CF4A5700E70EFC /* IAAppDelegate.m */,
 				041C977715CF4A5700E70EFC /* IAViewController.h */,
 				041C977815CF4A5800E70EFC /* IAViewController.m */,
-				041C977A15CF4A5800E70EFC /* IAViewController.xib */,
+				040AF38115D711560046A0B5 /* IAViewController.xib */,
 				041C976C15CF4A5700E70EFC /* Supporting Files */,
 			);
 			path = "Imagine Alice";
@@ -171,7 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041C977015CF4A5700E70EFC /* InfoPlist.strings in Resources */,
-				041C977C15CF4A5800E70EFC /* IAViewController.xib in Resources */,
+				040AF38315D711560046A0B5 /* IAViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,20 +209,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		040AF38115D711560046A0B5 /* IAViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				040AF38215D711560046A0B5 /* en */,
+			);
+			name = IAViewController.xib;
+			sourceTree = "<group>";
+		};
 		041C976E15CF4A5700E70EFC /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				041C976F15CF4A5700E70EFC /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		041C977A15CF4A5800E70EFC /* IAViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				041C977B15CF4A5800E70EFC /* en */,
-			);
-			name = IAViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
