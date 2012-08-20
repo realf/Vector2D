@@ -18,6 +18,7 @@
 		041C977215CF4A5700E70EFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977115CF4A5700E70EFC /* main.m */; };
 		041C977615CF4A5700E70EFC /* IAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977515CF4A5700E70EFC /* IAAppDelegate.m */; };
 		041C977915CF4A5800E70EFC /* IAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977815CF4A5800E70EFC /* IAViewController.m */; };
+		04FB34BA15E2E16F006EA792 /* IABoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB34B915E2E16F006EA792 /* IABoard.m */; };
 		04FF96D515D2174200C46F7C /* CocoaLumberjackCustomFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B2998C391441D682F98D3D /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,8 @@
 		041C977515CF4A5700E70EFC /* IAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAAppDelegate.m; sourceTree = "<group>"; };
 		041C977715CF4A5700E70EFC /* IAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAViewController.h; sourceTree = "<group>"; };
 		041C977815CF4A5800E70EFC /* IAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAViewController.m; sourceTree = "<group>"; };
+		04FB34B815E2E16F006EA792 /* IABoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IABoard.h; sourceTree = "<group>"; };
+		04FB34B915E2E16F006EA792 /* IABoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IABoard.m; sourceTree = "<group>"; };
 		04FF96D315D2174200C46F7C /* CocoaLumberjackCustomFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjackCustomFormatter.h; sourceTree = "<group>"; };
 		04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaLumberjackCustomFormatter.m; sourceTree = "<group>"; };
 		A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -96,6 +99,8 @@
 		041C976B15CF4A5700E70EFC /* Imagine Alice */ = {
 			isa = PBXGroup;
 			children = (
+				04FB34B815E2E16F006EA792 /* IABoard.h */,
+				04FB34B915E2E16F006EA792 /* IABoard.m */,
 				040AF39E15D762950046A0B5 /* IAMoveEngine.h */,
 				040AF39F15D762950046A0B5 /* IAMoveEngine.m */,
 				040AF39B15D761CF0046A0B5 /* IAMove.h */,
@@ -221,6 +226,7 @@
 				040AF39A15D761000046A0B5 /* IAPosition.m in Sources */,
 				040AF39D15D761CF0046A0B5 /* IAMove.m in Sources */,
 				040AF3A015D762950046A0B5 /* IAMoveEngine.m in Sources */,
+				04FB34BA15E2E16F006EA792 /* IABoard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
