@@ -24,6 +24,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 @property (assign, nonatomic) NSUInteger boardHeight;
 @property (retain, nonatomic) IAMoveEngine *moveEngine;
 @property (retain, nonatomic) IBOutlet UILabel *screen;
+@property (retain, nonatomic) IBOutlet UIButton *theNewGameButton;
 
 @end
 
@@ -35,6 +36,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 @synthesize boardWidth = _boardWidth;
 @synthesize boardHeight = _boardHeight;
 @synthesize screen = _screen;
+@synthesize theNewGameButton = _theNewGameButton;
 @synthesize moveEngine = _moveEngine;
 
 - (IAMoveEngine *)moveEngine
@@ -72,6 +74,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 {
     if (YES == self.aliceCanGo)
     {
+        [self.theNewGameButton setHidden:YES];
         if ([[sender currentTitle] isEqualToString:@"Up"])
             self.alicePosition.y++;
         else if ([[sender currentTitle] isEqualToString:@"Down"])
@@ -99,11 +102,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             [self.screen setText:[NSString stringWithFormat:@"Game over! Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
             DDLogInfo(@"%@", [NSString stringWithFormat:@"Game over! Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
             self.aliceCanGo = NO;
+            [self.theNewGameButton setHidden:NO];
         }
     }
 }
 
-- (IBAction)newGameButtonPressed:(UIButton *)sender
+- (IBAction)theNewGameButtonPressed:(id)sender
 {
     [self resetGame];
 }
@@ -126,6 +130,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (void)viewDidUnload
 {
     [self setScreen:nil];
+    [self setTheNewGameButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -161,6 +166,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     [_alicePosition release];
     [_screen release];
     [_moveEngine release];
+    [_theNewGameButton release];
     [super dealloc];
 }
 @end
