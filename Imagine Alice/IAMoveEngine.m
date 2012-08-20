@@ -34,11 +34,15 @@
     // Search for all possible moves by checking the position on the board after each move
     positionAfterMove.y = position.y + moveUp.deltaY;
     if (YES == [self isPosition:positionAfterMove insideTheBoardWithWidth:width height:height])
+    {
         [legalMoves addObject:moveUp];
+    }
     
     positionAfterMove.y = position.y + moveDown.deltaY;
     if (YES == [self isPosition:positionAfterMove insideTheBoardWithWidth:width height:height])
+    {
         [legalMoves addObject:moveDown];
+    }
     
     positionAfterMove.y = position.y;
     positionAfterMove.x = position.x + moveRight.deltaX;

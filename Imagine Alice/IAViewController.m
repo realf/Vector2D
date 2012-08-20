@@ -72,7 +72,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (IBAction)directionButtonPressed:(UIButton *)sender 
 {
-    if (YES == self.aliceCanGo)
+    if (self.aliceCanGo)
     {
         [self.theNewGameButton setHidden:YES];
         if ([[sender currentTitle] isEqualToString:@"Up"])
@@ -85,7 +85,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             self.alicePosition.x--;
         
         // If Alice is inside the board
-        if (YES == [self.moveEngine isPosition:self.alicePosition insideTheBoardWithWidth:self.boardWidth height:self.boardHeight])
+        if ([self.moveEngine isPosition:self.alicePosition insideTheBoardWithWidth:self.boardWidth height:self.boardHeight])
         {
             // Show Alice position 
             // [self.screen setText:[NSString stringWithFormat:@"Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
