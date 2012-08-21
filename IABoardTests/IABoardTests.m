@@ -24,10 +24,6 @@
     
     [super tearDown];
 }
-/*
-- (id)initWithNumCols:(NSUInteger)numCols numRows:(NSUInteger)numRows;
-- (id)init;
-- (BOOL)isPositionOnBoard:(IAPosition *)position;*/
 
 - (void)testInit
 {
@@ -92,6 +88,12 @@
     [testBoard release];
 }
 
-
+- (void)testIsPositionOnBoard
+{
+    IABoard *testBoard = [[IABoard alloc] init];
+    STAssertTrue([testBoard isPositionOnBoard:[IAPosition newPositionWithX:1 y:1]], @"Error in check if position is on the board");
+    STAssertFalse([testBoard isPositionOnBoard:[IAPosition newPositionWithX:-1 y:-1]], @"Error in check if position is on the board");
+    [testBoard release];
+}
 
 @end

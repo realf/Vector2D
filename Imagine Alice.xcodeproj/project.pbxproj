@@ -24,6 +24,7 @@
 		04101DE715E44A19006FB070 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04101DE515E44A19006FB070 /* InfoPlist.strings */; };
 		04101DEA15E44A19006FB070 /* IABoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04101DE915E44A19006FB070 /* IABoardTests.m */; };
 		04101DEF15E44B31006FB070 /* IABoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB34B915E2E16F006EA792 /* IABoard.m */; };
+		04101DF015E455B7006FB070 /* IAPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39915D761000046A0B5 /* IAPosition.m */; };
 		041C976615CF4A5700E70EFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
 		041C976815CF4A5700E70EFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976715CF4A5700E70EFC /* Foundation.framework */; };
 		041C976A15CF4A5700E70EFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976915CF4A5700E70EFC /* CoreGraphics.framework */; };
@@ -407,6 +408,7 @@
 			files = (
 				04101DEA15E44A19006FB070 /* IABoardTests.m in Sources */,
 				04101DEF15E44B31006FB070 /* IABoard.m in Sources */,
+				04101DF015E455B7006FB070 /* IAPosition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
