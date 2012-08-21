@@ -10,7 +10,7 @@
 
 static const NSUInteger kMaxBoardSize = 10;
 static const NSUInteger kMinBoardSize = 3;
-static const NSUInteger kDefaultBoardSize = 3;
+static const NSUInteger kDefaultBoardSize = kMinBoardSize;
 
 @implementation IABoard
 
@@ -23,12 +23,12 @@ static const NSUInteger kDefaultBoardSize = 3;
 {
     if (self = [super init]) 
     {
-        if (_numCols >= kMinBoardSize && _numCols <= kMaxBoardSize)
+        if (numCols >= kMinBoardSize && numCols <= kMaxBoardSize)
             _numCols = numCols;
         else
             _numCols = kDefaultBoardSize;
         
-        if (_numRows >= kMinBoardSize && _numRows <= kMaxBoardSize)
+        if (numRows >= kMinBoardSize && numRows <= kMaxBoardSize)
             _numRows = numRows;
         else
             _numRows = kDefaultBoardSize;
