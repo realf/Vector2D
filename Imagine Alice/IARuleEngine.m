@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 imagine-alice.org. All rights reserved.
 //
 
-#import "IAMoveEngine.h"
+#import "IARuleEngine.h"
 #import "IAMove.h"
 
-@implementation IAMoveEngine
+@implementation IARuleEngine
 
-- (BOOL)isPosition:(IAPosition *)position insideTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height
+- (BOOL)isCharacter:(IACharacter *)character onBoard:(IABoard *)board
 {
-    if (position.x >= 0 && position.x < width && position.y >= 0 && position.y < width)
+    if (character.position.x >= 0 && character.position.x < board.numCols && character.position.y >= 0 && character.position.y < board.numRows)
         return YES;
     else
         return NO;

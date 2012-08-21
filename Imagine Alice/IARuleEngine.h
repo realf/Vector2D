@@ -1,5 +1,5 @@
 //
-//  IAMoveEngine.h
+//  IARuleEngine.h
 //  Imagine Alice
 //
 //  Created by Sergey Dunets on 8/12/12.
@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IAPosition.h"
+#import "IACharacter.h"
+#import "IABoard.h"
 
 /***
  Provides basic movement operations.
  ***/
 
-@interface IAMoveEngine : NSObject
+@interface IARuleEngine : NSObject
 
-- (BOOL)isPosition:(IAPosition *)position insideTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
+- (BOOL)isCharacter:(IACharacter *)character onBoard:(IABoard *)board;
 - (NSArray *)legalMovesForPosition:(IAPosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
 - (IAPosition *)makeRandomMoveFromPosition:(IAPosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
 
