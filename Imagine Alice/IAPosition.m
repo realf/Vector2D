@@ -21,4 +21,14 @@
     return position;
 }
 
+- (id)initWithPosition:(IAPosition *)position
+{
+    if (self = [super init])
+    {
+        _x = position.x;
+        _y = position.y;
+    }
+    return self;
+}
+
 @end

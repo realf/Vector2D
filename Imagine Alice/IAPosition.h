@@ -16,5 +16,6 @@
 @property (assign, nonatomic) NSInteger y;
 
 + (IAPosition *)newPositionWithX:(NSInteger)x y:(NSInteger)y;
+- (id)initWithPosition:(IAPosition *)position;
 
 @end
