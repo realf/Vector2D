@@ -13,9 +13,9 @@
 @synthesize x = _x;
 @synthesize y = _y;
 
-+ (IAPosition *)makePositionWithX:(NSInteger)x y:(NSInteger)y
++ (IAPosition *)newPositionWithX:(NSInteger)x y:(NSInteger)y
 {
-    IAPosition *position = [[[IAPosition alloc] init] autorelease];
+    IAPosition *position = [[IAPosition alloc] init];
     position.x = x;
     position.y = y;
     return position;
