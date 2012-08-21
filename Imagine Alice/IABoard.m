@@ -8,9 +8,9 @@
 
 #import "IABoard.h"
 
-const NSUInteger kMaxBoardSize = 16;
-const NSUInteger kMinBoardSize = 3;
-const NSUInteger kDefaultBoardSize = 3;
+static const NSUInteger kMaxBoardSize = 10;
+static const NSUInteger kMinBoardSize = 3;
+static const NSUInteger kDefaultBoardSize = 3;
 
 @implementation IABoard
 
