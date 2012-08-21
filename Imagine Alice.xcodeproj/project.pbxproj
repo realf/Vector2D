@@ -11,6 +11,13 @@
 		040AF39A15D761000046A0B5 /* IAPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39915D761000046A0B5 /* IAPosition.m */; };
 		040AF39D15D761CF0046A0B5 /* IAMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39C15D761CF0046A0B5 /* IAMove.m */; };
 		040AF3A015D762950046A0B5 /* IAMoveEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39F15D762950046A0B5 /* IAMoveEngine.m */; };
+		04101DC615E43FEC006FB070 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04101DC515E43FEC006FB070 /* SenTestingKit.framework */; };
+		04101DC715E43FEC006FB070 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
+		04101DC815E43FEC006FB070 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976715CF4A5700E70EFC /* Foundation.framework */; };
+		04101DCE15E43FEC006FB070 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04101DCC15E43FEC006FB070 /* InfoPlist.strings */; };
+		04101DD115E43FEC006FB070 /* IACharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04101DD015E43FEC006FB070 /* IACharacterTests.m */; };
+		04101DD715E44247006FB070 /* IACharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2A31B15E43524003AE595 /* IACharacter.m */; };
+		04101DD815E4425A006FB070 /* IAPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39915D761000046A0B5 /* IAPosition.m */; };
 		041C976615CF4A5700E70EFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
 		041C976815CF4A5700E70EFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976715CF4A5700E70EFC /* Foundation.framework */; };
 		041C976A15CF4A5700E70EFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976915CF4A5700E70EFC /* CoreGraphics.framework */; };
@@ -32,6 +39,13 @@
 		040AF39C15D761CF0046A0B5 /* IAMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAMove.m; sourceTree = "<group>"; };
 		040AF39E15D762950046A0B5 /* IAMoveEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAMoveEngine.h; sourceTree = "<group>"; };
 		040AF39F15D762950046A0B5 /* IAMoveEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAMoveEngine.m; sourceTree = "<group>"; };
+		04101DC415E43FEC006FB070 /* IACharacterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IACharacterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04101DC515E43FEC006FB070 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		04101DCB15E43FEC006FB070 /* IACharacterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IACharacterTests-Info.plist"; sourceTree = "<group>"; };
+		04101DCD15E43FEC006FB070 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04101DCF15E43FEC006FB070 /* IACharacterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IACharacterTests.h; sourceTree = "<group>"; };
+		04101DD015E43FEC006FB070 /* IACharacterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IACharacterTests.m; sourceTree = "<group>"; };
+		04101DD215E43FEC006FB070 /* IACharacterTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IACharacterTests-Prefix.pch"; sourceTree = "<group>"; };
 		041C976115CF4A5700E70EFC /* Imagine Alice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Imagine Alice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		041C976515CF4A5700E70EFC /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		041C976715CF4A5700E70EFC /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,6 +69,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		04101DC015E43FEC006FB070 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04101DC615E43FEC006FB070 /* SenTestingKit.framework in Frameworks */,
+				04101DC715E43FEC006FB070 /* UIKit.framework in Frameworks */,
+				04101DC815E43FEC006FB070 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		041C975E15CF4A5700E70EFC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,11 +93,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04101DC915E43FEC006FB070 /* IACharacterTests */ = {
+			isa = PBXGroup;
+			children = (
+				04101DCF15E43FEC006FB070 /* IACharacterTests.h */,
+				04101DD015E43FEC006FB070 /* IACharacterTests.m */,
+				04101DCA15E43FEC006FB070 /* Supporting Files */,
+			);
+			path = IACharacterTests;
+			sourceTree = "<group>";
+		};
+		04101DCA15E43FEC006FB070 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04101DCB15E43FEC006FB070 /* IACharacterTests-Info.plist */,
+				04101DCC15E43FEC006FB070 /* InfoPlist.strings */,
+				04101DD215E43FEC006FB070 /* IACharacterTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		041C975615CF4A5700E70EFC = {
 			isa = PBXGroup;
 			children = (
 				04FF96D215D2174200C46F7C /* CocoaLumberjackCustomFormatter */,
 				041C976B15CF4A5700E70EFC /* Imagine Alice */,
+				04101DC915E43FEC006FB070 /* IACharacterTests */,
 				041C976415CF4A5700E70EFC /* Frameworks */,
 				041C976215CF4A5700E70EFC /* Products */,
 				A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */,
@@ -84,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				041C976115CF4A5700E70EFC /* Imagine Alice.app */,
+				04101DC415E43FEC006FB070 /* IACharacterTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +141,7 @@
 				041C976715CF4A5700E70EFC /* Foundation.framework */,
 				041C976915CF4A5700E70EFC /* CoreGraphics.framework */,
 				E6B2998C391441D682F98D3D /* libPods.a */,
+				04101DC515E43FEC006FB070 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,6 +193,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		04101DC315E43FEC006FB070 /* IACharacterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04101DD515E43FEC006FB070 /* Build configuration list for PBXNativeTarget "IACharacterTests" */;
+			buildPhases = (
+				04101DBF15E43FEC006FB070 /* Sources */,
+				04101DC015E43FEC006FB070 /* Frameworks */,
+				04101DC115E43FEC006FB070 /* Resources */,
+				04101DC215E43FEC006FB070 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IACharacterTests;
+			productName = IACharacterTests;
+			productReference = 04101DC415E43FEC006FB070 /* IACharacterTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		041C976015CF4A5700E70EFC /* Imagine Alice */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 041C977F15CF4A5800E70EFC /* Build configuration list for PBXNativeTarget "Imagine Alice" */;
@@ -186,11 +251,20 @@
 			projectRoot = "";
 			targets = (
 				041C976015CF4A5700E70EFC /* Imagine Alice */,
+				04101DC315E43FEC006FB070 /* IACharacterTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		04101DC115E43FEC006FB070 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04101DCE15E43FEC006FB070 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		041C975F15CF4A5700E70EFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -203,6 +277,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04101DC215E43FEC006FB070 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		78C8EB6A73FA42808FB351DB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,6 +307,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		04101DBF15E43FEC006FB070 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04101DD115E43FEC006FB070 /* IACharacterTests.m in Sources */,
+				04101DD715E44247006FB070 /* IACharacter.m in Sources */,
+				04101DD815E4425A006FB070 /* IAPosition.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		041C975D15CF4A5700E70EFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,6 +344,14 @@
 			name = IAViewController.xib;
 			sourceTree = "<group>";
 		};
+		04101DCC15E43FEC006FB070 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04101DCD15E43FEC006FB070 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		041C976E15CF4A5700E70EFC /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -258,6 +363,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		04101DD315E43FEC006FB070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IACharacterTests/IACharacterTests-Prefix.pch";
+				INFOPLIST_FILE = "IACharacterTests/IACharacterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		04101DD415E43FEC006FB070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IACharacterTests/IACharacterTests-Prefix.pch";
+				INFOPLIST_FILE = "IACharacterTests/IACharacterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		041C977D15CF4A5800E70EFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -328,6 +463,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04101DD515E43FEC006FB070 /* Build configuration list for PBXNativeTarget "IACharacterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04101DD315E43FEC006FB070 /* Debug */,
+				04101DD415E43FEC006FB070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		041C975B15CF4A5700E70EFC /* Build configuration list for PBXProject "Imagine Alice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
