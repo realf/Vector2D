@@ -45,6 +45,12 @@
     [testCharacter release];
 }
 
-
+- (void)testMemoryLeaks
+{
+    IACharacter *testCharacter = [[IACharacter alloc] init];
+    STAssertEquals([testCharacter.name retainCount], 1u, @"Wrong retain count");
+    STAssertEquals([testCharacter.position retainCount], 1u, @"Wrong retain count");
+    [testCharacter release];
+}
 
 @end
