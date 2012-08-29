@@ -41,4 +41,11 @@ static const NSUInteger kDefaultBoardSize = kMinBoardSize;
     return [self initWithNumCols:kDefaultBoardSize numRows:kDefaultBoardSize];
 }
 
+// Currently, since the board is rectangular and does not contain holes, 
+// we can check the position simply comparing coordinates with numRows and numCols.
+- (BOOL)isPositionOnBoard:(IAPosition *)position
+{
+    return (position.x >= 0 && position.x < self.numCols && position.y >= 0 && position.y < self.numRows);
+}
+
 @end

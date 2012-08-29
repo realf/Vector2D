@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IAPosition.h"
 
 @interface IABoard : NSObject
 
@@ -15,5 +16,6 @@
 
 - (id)initWithNumCols:(NSUInteger)numCols numRows:(NSUInteger)numRows;
 - (id)init;
+- (BOOL)isPositionOnBoard:(IAPosition *)position;
 
 @end
