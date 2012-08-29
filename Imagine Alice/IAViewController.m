@@ -7,7 +7,7 @@
 //
 
 #import "IAViewController.h"
-#import "IAMoveEngine.h"
+#import "IARuleEngine.h"
 #import "DDLog.h"
 
 #ifdef DEBUG
@@ -22,7 +22,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 @property (assign, nonatomic) BOOL aliceCanGo;
 @property (assign, nonatomic) NSUInteger boardWidth;
 @property (assign, nonatomic) NSUInteger boardHeight;
-@property (retain, nonatomic) IAMoveEngine *moveEngine;
+@property (retain, nonatomic) IARuleEngine *ruleEngine;
 @property (retain, nonatomic) IBOutlet UILabel *screen;
 @property (retain, nonatomic) IBOutlet UIButton *theNewGameButton;
 
@@ -37,16 +37,16 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 @synthesize boardHeight = _boardHeight;
 @synthesize screen = _screen;
 @synthesize theNewGameButton = _theNewGameButton;
-@synthesize moveEngine = _moveEngine;
+@synthesize ruleEngine = _ruleEngine;
 
-- (IAMoveEngine *)moveEngine
+- (IARuleEngine *)ruleEngine
 {
-    if (nil == _moveEngine)
+    if (nil == _ruleEngine)
     {
-        _moveEngine = [[IAMoveEngine alloc] init];
+        _ruleEngine = [[IARuleEngine alloc] init];
     }
     
-    return _moveEngine;
+    return _ruleEngine;
 }
 
 - (IAPosition *)alicePosition
@@ -85,14 +85,14 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             self.alicePosition.x--;
         
         // If Alice is inside the board
-        if ([self.moveEngine isPosition:self.alicePosition insideTheBoardWithWidth:self.boardWidth height:self.boardHeight])
+        if ([self.ruleEngine isPosition:self.alicePosition insideTheBoardWithWidth:self.boardWidth height:self.boardHeight])
         {
             // Show Alice position 
             // [self.screen setText:[NSString stringWithFormat:@"Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
             DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
             
             // Let the computer make his move
-            IAPosition *nextAlicePosition = [self.moveEngine makeRandomMoveFromPosition:self.alicePosition onTheBoardWithWidth:self.boardWidth height:self.boardHeight];
+            IAPosition *nextAlicePosition = [self.ruleEngine makeRandomMoveFromPosition:self.alicePosition onTheBoardWithWidth:self.boardWidth height:self.boardHeight];
             [self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice by (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
             self.alicePosition = nextAlicePosition;             
             DDLogInfo(@"%@", [NSString stringWithFormat:@"iPhone moves Alice to (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
@@ -165,7 +165,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (void)dealloc {
     [_alicePosition release];
     [_screen release];
-    [_moveEngine release];
+    [_ruleEngine release];
     [_theNewGameButton release];
     [super dealloc];
 }
