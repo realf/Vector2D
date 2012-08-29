@@ -1,15 +1,15 @@
 //
-//  IACharacterTests.m
-//  IACharacterTests
+//  IAGameObjectTests.m
+//  IAGameObjectTests
 //
 //  Created by Sergey Dunets on 8/22/12.
 //  Copyright (c) 2012 imagine-alice.org. All rights reserved.
 //
 
-#import "IACharacterTests.h"
-#import "IACharacter.h"
+#import "IAGameObjectTests.h"
+#import "IAGameObject.h"
 
-@implementation IACharacterTests
+@implementation IAGameObjectTests
 
 - (void)setUp
 {
@@ -27,7 +27,7 @@
 
 - (void)testInit
 {
-    IACharacter *testCharacter = [[IACharacter alloc] init];
+    IAGameObject *testCharacter = [[IAGameObject alloc] init];
     STAssertNotNil(testCharacter, @"testCharacter is nil");
     STAssertEqualObjects(testCharacter.name, @"Default Name", @"Wrong default name");
     STAssertTrue(testCharacter.position.x == 0 && testCharacter.position.y == 0, @"Wrong default position");
@@ -37,7 +37,7 @@
 
 - (void)testInitWithNamePosition
 {
-    IACharacter *testCharacter = [[IACharacter alloc] initWithName:@"Alice" position:[IAPosition newPositionWithX:1 y:1]];
+    IAGameObject *testCharacter = [[IAGameObject alloc] initWithName:@"Alice" position:[IAPosition newPositionWithX:1 y:1]];
     STAssertNotNil(testCharacter, @"testCharacter is nil");
     STAssertEqualObjects(testCharacter.name, @"Alice", @"Wrong default name");
     STAssertTrue(testCharacter.position.x == 1 && testCharacter.position.y == 1, @"Wrong default position");
@@ -47,7 +47,7 @@
 
 - (void)testMemoryLeaks
 {
-    IACharacter *testCharacter = [[IACharacter alloc] init];
+    IAGameObject *testCharacter = [[IAGameObject alloc] init];
     STAssertEquals([testCharacter.name retainCount], 1u, @"Wrong retain count");
     STAssertEquals([testCharacter.position retainCount], 1u, @"Wrong retain count");
     [testCharacter release];

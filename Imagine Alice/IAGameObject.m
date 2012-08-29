@@ -1,19 +1,17 @@
 //
-//  IACharacter.m
+//  IAGameObject.m
 //  ImagineAlice-iPhone
 //
 //  Created by Sergey Dunets on 7/29/12.
 //  Copyright (c) 2012 imagine-alice.org. All rights reserved.
 //
 
-#import "IACharacter.h"
+#import "IAGameObject.h"
 
-static NSString * const kDefaultCharacterName = @"Default Name";
-static const IACharacterType kDefaultCharacterType = kPlayerCharacter;
+static NSString * const kDefaultObjectName = @"Default Name";
 
-@implementation IACharacter
+@implementation IAGameObject
 
-@synthesize type = _type;
 @synthesize name = _name;
 @synthesize position = _position;
 @synthesize isEnabled = _isEnabled;
@@ -25,12 +23,11 @@ static const IACharacterType kDefaultCharacterType = kPlayerCharacter;
         if (name) 
             _name = [[NSMutableString alloc] initWithString:name];
         else 
-            _name = [[NSMutableString alloc] initWithString:kDefaultCharacterName];
+            _name = [[NSMutableString alloc] initWithString:kDefaultObjectName];
         
         // If position is nil, we will automatically set _position to (0, 0)
         _position = [[IAPosition alloc] initWithPosition:position];
         _isEnabled = YES;
-        _type = kDefaultCharacterType;
     }
     return self;
 }

@@ -1,5 +1,5 @@
 //
-//  IACharacter.h
+//  IAGameObject.h
 //  ImagineAlice-iPhone
 //
 //  Created by Sergey Dunets on 7/29/12.
@@ -9,15 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "IAPosition.h"
 
-typedef enum {
-    kPlayerCharacter = 0x1,
-    kNonPlayerCharacter = 0x1 << 1
-} IACharacterType;
 
 // Represents the character in the game.
-@interface IACharacter : NSObject
+@interface IAGameObject : NSObject
 
-@property (assign, nonatomic) IACharacterType type;
 @property (retain, nonatomic) NSMutableString *name;
 @property (retain, nonatomic) IAPosition *position;
 @property (assign, nonatomic) BOOL isEnabled;
