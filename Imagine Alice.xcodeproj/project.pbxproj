@@ -36,6 +36,8 @@
 		04A0912A15EE692A00FE9410 /* IAGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912915EE692A00FE9410 /* IAGameObject.m */; };
 		04A0912B15EE692A00FE9410 /* IAGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912915EE692A00FE9410 /* IAGameObject.m */; };
 		04A0912C15EE6AF200FE9410 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04101DC515E43FEC006FB070 /* SenTestingKit.framework */; };
+		04A0912F15EE763100FE9410 /* IATorpedo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912E15EE763000FE9410 /* IATorpedo.m */; };
+		04A0913015EE763100FE9410 /* IATorpedo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912E15EE763000FE9410 /* IATorpedo.m */; };
 		04FB34BA15E2E16F006EA792 /* IABoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB34B915E2E16F006EA792 /* IABoard.m */; };
 		04FF96D515D2174200C46F7C /* CocoaLumberjackCustomFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B2998C391441D682F98D3D /* libPods.a */; };
@@ -76,6 +78,8 @@
 		04A0911F15EE66CF00FE9410 /* IAGameObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAGameObjectTests.m; sourceTree = "<group>"; };
 		04A0912815EE692A00FE9410 /* IAGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAGameObject.h; sourceTree = "<group>"; };
 		04A0912915EE692A00FE9410 /* IAGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAGameObject.m; sourceTree = "<group>"; };
+		04A0912D15EE763000FE9410 /* IATorpedo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATorpedo.h; sourceTree = "<group>"; };
+		04A0912E15EE763000FE9410 /* IATorpedo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATorpedo.m; sourceTree = "<group>"; };
 		04FB34B815E2E16F006EA792 /* IABoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IABoard.h; sourceTree = "<group>"; };
 		04FB34B915E2E16F006EA792 /* IABoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IABoard.m; sourceTree = "<group>"; };
 		04FF96D315D2174200C46F7C /* CocoaLumberjackCustomFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjackCustomFormatter.h; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			children = (
 				04A0912815EE692A00FE9410 /* IAGameObject.h */,
 				04A0912915EE692A00FE9410 /* IAGameObject.m */,
+				04A0912D15EE763000FE9410 /* IATorpedo.h */,
+				04A0912E15EE763000FE9410 /* IATorpedo.m */,
 				04FB34B815E2E16F006EA792 /* IABoard.h */,
 				04FB34B915E2E16F006EA792 /* IABoard.m */,
 				040AF39E15D762950046A0B5 /* IARuleEngine.h */,
@@ -396,6 +402,7 @@
 				04A0912715EE688C00FE9410 /* IAGameObjectTests.m in Sources */,
 				04101DD815E4425A006FB070 /* IAPosition.m in Sources */,
 				04A0912B15EE692A00FE9410 /* IAGameObject.m in Sources */,
+				04A0913015EE763100FE9410 /* IATorpedo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +430,7 @@
 				04FB34BA15E2E16F006EA792 /* IABoard.m in Sources */,
 				04A0912215EE66CF00FE9410 /* IAGameObjectTests.m in Sources */,
 				04A0912A15EE692A00FE9410 /* IAGameObject.m in Sources */,
+				04A0912F15EE763100FE9410 /* IATorpedo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
