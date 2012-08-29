@@ -12,10 +12,10 @@
 
 @interface IAPosition : NSObject
 
-@property (assign, nonatomic) NSInteger x;
-@property (assign, nonatomic) NSInteger y;
+@property (assign, nonatomic) float x;
+@property (assign, nonatomic) float y;
 
-+ (IAPosition *)newPositionWithX:(NSInteger)x y:(NSInteger)y;
++ (IAPosition *)newPositionWithX:(float)x y:(float)y;
 - (id)initWithPosition:(IAPosition *)position;
 
 @end

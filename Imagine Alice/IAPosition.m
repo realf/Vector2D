@@ -13,7 +13,7 @@
 @synthesize x = _x;
 @synthesize y = _y;
 
-+ (IAPosition *)newPositionWithX:(NSInteger)x y:(NSInteger)y
++ (IAPosition *)newPositionWithX:(float)x y:(float)y
 {
     IAPosition *position = [[IAPosition alloc] init];
     position.x = x;
@@ -29,6 +29,12 @@
         _y = position.y;
     }
     return self;
+}
+
+- (BOOL)isEqual:(id)object
+{
+    float delta = 1e-6;
+    return ([object isMemberOfClass:[self class]] && fabs([(IAPosition *)object x] - self.x) < delta && fabs([(IAPosition *)object y] - self.y) < delta);
 }
 
 @end
