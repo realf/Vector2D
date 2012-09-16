@@ -7,15 +7,16 @@
 //
 
 #import "IAAbsolutePosition.h"
+#import "IAGlobalConstants.h"
 
 @implementation IAAbsolutePosition
 
 @synthesize x = _x;
 @synthesize y = _y;
 
-+ (IAAbsolutePosition *)newAbsolutePositionWithX:(double)x y:(double)y
++ (IAAbsolutePosition *)absolutePositionWithX:(double)x y:(double)y
 {
-    IAAbsolutePosition *position = [[IAAbsolutePosition alloc] init];
+    IAAbsolutePosition *position = [[[IAAbsolutePosition alloc] init] autorelease];
     position.x = x;
     position.y = y;
     return position;
@@ -33,15 +34,9 @@
     return self;
 }
 
-- (id)init
-{
-    return([self initWithAbsolutePosition:[[self class] newAbsolutePositionWithX:0.0 y:0.0]]);
-}
-
 - (BOOL)isEqual:(id)object
 {
-    float delta = 1e-6;
-    return ([object isMemberOfClass:[self class]] && fabs([(IAAbsolutePosition *)object x] - self.x) < delta && fabs([(IAAbsolutePosition *)object y] - self.y) < delta);
+    return ([object isMemberOfClass:[self class]] && fabs([(IAAbsolutePosition *)object x] - self.x) < EPSILON && fabs([(IAAbsolutePosition *)object y] - self.y) < EPSILON);
 }
 
 @end

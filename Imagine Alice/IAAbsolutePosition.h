@@ -16,7 +16,7 @@
 @property (assign, nonatomic) double x;
 @property (assign, nonatomic) double y;
 
-+ (IAAbsolutePosition *)newAbsolutePositionWithX:(double)x y:(double)y;
++ (IAAbsolutePosition *)absolutePositionWithX:(double)x y:(double)y;
 - (id)initWithAbsolutePosition:(IAAbsolutePosition *)position;
 
 @end
