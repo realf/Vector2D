@@ -1,5 +1,5 @@
 //
-//  IAPositionChecker.m
+//  IARuleEngine.m
 //  Imagine Alice
 //
 //  Created by Sergey Dunets on 8/12/12.
@@ -7,19 +7,64 @@
 //
 
 #import "IARuleEngine.h"
+#import "IABoard.h"
 #import "IAMove.h"
+
+@interface IARuleEngine()
+
+@end
 
 @implementation IARuleEngine
 
-- (BOOL)isCharacter:(IACharacter *)character onBoard:(IABoard *)board
+@synthesize history = _history;
+@synthesize gameObjects = _gameObjects;
+@synthesize board = _board;
+
+- (id)gameObjects
 {
-    if (character.position.x >= 0 && character.position.x < board.numCols && character.position.y >= 0 && character.position.y < board.numRows)
-        return YES;
-    else
-        return NO;
+    if (_gameObjects == nil)
+        _gameObjects = [[NSMutableArray alloc] init];
+    return _gameObjects;
 }
 
-- (NSArray *)legalMovesForPosition:(IAPosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height
+- (id)history
+{
+    if (_history == nil)
+        _history = [[IAHistory alloc] init];
+    return _history;
+}
+
+- (id)board
+{
+    if (_board == nil)
+        _board = [[IABoard alloc] init];
+    return _board;
+}
+
+- (void)saveHistory
+{
+    if (self.gameObjects != nil)
+    {
+        IAHistoryPoint *historyPoint = [[IAHistoryPoint alloc] init];
+        for (int i = 0; i < [self.gameObjects count]; i++)
+        {
+            [historyPoint addObjectToHistoryPoint:[self.gameObjects objectAtIndex:i]];
+        }
+#warning "Think if we need to save the board"
+        // TODO We don't save the board. Do we need it?
+        [self.history addHistoryPoint:historyPoint];
+        [historyPoint release];
+    }
+}
+
+- (void)dealloc
+{
+    [_history release];
+    [_gameObjects release];
+    [_board release];
+}
+
+- (NSArray *)legalMovesForPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height
 {
     NSMutableArray *legalMoves = [[[NSMutableArray alloc] init] autorelease];
     
@@ -29,7 +74,7 @@
     IAMove *moveRight = [IAMove moveWithNumberOfStepsInXDirection:1 yDirection:0];
     IAMove *moveLeft = [IAMove moveWithNumberOfStepsInXDirection:-1 yDirection:0];
     
-    IAPosition *positionAfterMove = [[IAPosition alloc] init];
+    IAAbsolutePosition *positionAfterMove = [[IAAbsolutePosition alloc] init];
     
     // Search for all possible moves by checking the position on the board after each move
     positionAfterMove.y = position.y + moveUp.deltaY;
@@ -61,14 +106,14 @@
     return legalMoves;
 }
 
-- (IAPosition *)makeRandomMoveFromPosition:(IAPosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height
+- (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height
 {
     NSArray *legalMoves = [self legalMovesForPosition:position onTheBoardWithWidth:width height:height];
     NSUInteger numberOfLegalMoves = [legalMoves count];
     NSAssert(numberOfLegalMoves > 0, @"Cannot make a legal move");
     NSInteger randomMoveNumber = arc4random_uniform(numberOfLegalMoves);
     NSAssert(randomMoveNumber >= 0 && randomMoveNumber < numberOfLegalMoves, @"randomMoveNumber is out of range");
-    IAPosition *nextPosition = [[[IAPosition alloc] init] autorelease];
+    IAAbsolutePosition *nextPosition = [[[IAAbsolutePosition alloc] init] autorelease];
     nextPosition.x = position.x + [[legalMoves objectAtIndex:randomMoveNumber] deltaX];
     nextPosition.y = position.y + [[legalMoves objectAtIndex:randomMoveNumber] deltaY];
     return nextPosition;

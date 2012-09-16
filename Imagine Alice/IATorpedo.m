@@ -14,7 +14,7 @@
 
 - (id)initWitName:(NSString *)name position:(IAAbsolutePosition *)position speed:(NSNumber *)speed
 {
-    if (self = [super initWithName:name position:position])
+    if (self = [super initWithName:name absolutePosition:position])
     {
         _speed = speed;
     }

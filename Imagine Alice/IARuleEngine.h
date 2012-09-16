@@ -7,17 +7,33 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IACharacter.h"
+#import "IAGameObject.h"
 #import "IABoard.h"
+#import "IAHistory.h"
 
 /***
- Provides basic movement operations.
+ Class IARuleEngine provides basic game rules. 
+ It manages the gameplay and interaction of main game objects. 
+ In future it will be able to load levels with custom rules for every level.
  ***/
+
+#warning "Implement proper history!"
 
 @interface IARuleEngine : NSObject
 
-- (BOOL)isCharacter:(IACharacter *)character onBoard:(IABoard *)board;
-- (NSArray *)legalMovesForPosition:(IAPosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
-- (IAPosition *)makeRandomMoveFromPosition:(IAPosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
+// Contains current game objects
+@property (retain, nonatomic) NSMutableArray *gameObjects;
+
+// The board used on the current level
+@property (retain, nonatomic) IABoard *board;
+
+// Contains states of all game objects after every turn
+@property (retain, nonatomic) IAHistory *history;
+
+// Saves all game objects to the history
+- (void)saveHistory;
+
+- (NSArray *)legalMovesForPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
+- (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
 
 @end

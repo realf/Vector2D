@@ -9,11 +9,18 @@
 #import <Foundation/Foundation.h>
 
 #import "IAHistoryPoint.h"
+#import "IAGameObject.h"
 
 /// Class IAHistory represents the sequence of history points.
 
 @interface IAHistory : NSObject
 
 - (void)addHistoryPoint:(IAHistoryPoint *)historyPoint;
+
+// We can get objects by their names.
+- (IAGameObject *)gameObjectWithName:(NSString *)name atHistoryPointIndex:(NSUInteger)historyPointIndex;
+
+// We can get also objects from the last history point
+- (IAGameObject *)gameObjectAtLastHistoryPointWithObjectName:(NSString *)name;
 
 @end

@@ -13,9 +13,9 @@ static NSString * const kDefaultObjectName = @"Default Name";
 @implementation IAGameObject
 
 @synthesize name = _name;
-@synthesize position = _position;
+@synthesize absolutePosition = _position;
 
-- (id)initWithName:(NSString *)name position:(IAAbsolutePosition *)position
+- (id)initWithName:(NSString *)name absolutePosition:(IAAbsolutePosition *)absolutePosition
 {
     if (self = [super init])
     {
@@ -25,14 +25,14 @@ static NSString * const kDefaultObjectName = @"Default Name";
             _name = [[NSMutableString alloc] initWithString:kDefaultObjectName];
         
         // If the absolute position is nil, we will automatically set _position to (0.0, 0.0)
-        _position = [[IAAbsolutePosition alloc] initWithAbsolutePosition:position];
+        _position = [[IAAbsolutePosition alloc] initWithAbsolutePosition:absolutePosition];
     }
     return self;
 }
 
 - (id)init
 {
-    return [self initWithName:nil position:nil];
+    return [self initWithName:nil absolutePosition:nil];
 }
 
 - (void)dealloc

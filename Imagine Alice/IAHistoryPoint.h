@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-/// Every object add itself to the history point, if it wants to be saved
+@protocol IAHistoryPointProtocol <NSObject>
+- (NSString *)name;
+@end
+
+/// Class IAHistoryPoint is used when we need to save the game state.
+/// Every object adds itself to the history point, if it wants to be saved.
 
 @interface IAHistoryPoint : NSObject
 
-- (void)addObjectToHistoryPoint:(id)object;
+- (void)addObjectToHistoryPoint:(id<IAHistoryPointProtocol>)object;
+
+// Gets the object with a given name.
+- (id<IAHistoryPointProtocol>)objectWithName:(NSString *)name;
 
 @end

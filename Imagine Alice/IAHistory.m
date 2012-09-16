@@ -35,4 +35,14 @@
     }
 }
 
+- (IAGameObject *)gameObjectWithName:(NSString *)name atHistoryPointIndex:(NSUInteger)historyPointIndex
+{
+    return ([[self.history objectAtIndex:historyPointIndex] objectWithName:name]);
+}
+
+- (IAGameObject *)gameObjectAtLastHistoryPointWithObjectName:(NSString *)name
+{
+    return ([self gameObjectWithName:name atHistoryPointIndex:[self.history count] - 1]);
+}
+
 @end

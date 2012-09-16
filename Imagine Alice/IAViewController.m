@@ -18,7 +18,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 @interface IAViewController()
 
-@property (retain, nonatomic) IAPosition *alicePosition;
+@property (retain, nonatomic) IAAbsolutePosition *alicePosition;
 @property (assign, nonatomic) BOOL aliceCanGo;
 @property (assign, nonatomic) NSUInteger boardWidth;
 @property (assign, nonatomic) NSUInteger boardHeight;
@@ -49,11 +49,11 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     return _ruleEngine;
 }
 
-- (IAPosition *)alicePosition
+- (IAAbsolutePosition *)alicePosition
 {
     if (nil == _alicePosition)
     {
-        _alicePosition = [[IAPosition alloc] init];
+        _alicePosition = [[IAAbsolutePosition alloc] init];
     }
     
     return _alicePosition;
@@ -92,7 +92,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
             
             // Let the computer make his move
-            IAPosition *nextAlicePosition = [self.ruleEngine makeRandomMoveFromPosition:self.alicePosition onTheBoardWithWidth:self.boardWidth height:self.boardHeight];
+            IAAbsolutePosition *nextAlicePosition = [self.ruleEngine makeRandomMoveFromPosition:self.alicePosition onTheBoardWithWidth:self.boardWidth height:self.boardHeight];
             [self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice by (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
             self.alicePosition = nextAlicePosition;             
             DDLogInfo(@"%@", [NSString stringWithFormat:@"iPhone moves Alice to (%d, %d)", self.alicePosition.x, self.alicePosition.y]);

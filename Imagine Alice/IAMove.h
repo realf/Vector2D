@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-/***
- Representation of any character's move
- ***/
+/// Representation of any character's move. 
+#warning "Make the logic clear and delete this ugly class, if possible!"
 
 @interface IAMove : NSObject
 

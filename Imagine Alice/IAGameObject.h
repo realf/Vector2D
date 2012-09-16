@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "IAAbsolutePosition.h"
+#import "IAHistoryPoint.h"
 
+/// Class IAGameObject represents objects in the game.
 
-// Represents objects in the game.
-@interface IAGameObject : NSObject
+@interface IAGameObject : NSObject <IAHistoryPointProtocol>
 
 @property (retain, nonatomic) NSMutableString *name;
-@property (retain, nonatomic) IAAbsolutePosition *position;
+@property (retain, nonatomic) IAAbsolutePosition *absolutePosition;
 
-- (id)initWithName:(NSString *)name position:(IAAbsolutePosition *)position;
+- (id)initWithName:(NSString *)name absolutePosition:(IAAbsolutePosition *)absolutePosition;
 
 @end

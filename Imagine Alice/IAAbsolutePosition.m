@@ -22,7 +22,6 @@
     return position;
 }
 
-
 // The disignated initializer
 - (id)initWithAbsolutePosition:(IAAbsolutePosition *)position
 {

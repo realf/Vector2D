@@ -9,30 +9,33 @@
 #import "IAHistoryPoint.h"
 
 @interface IAHistoryPoint()
-
-@property (retain, nonatomic) NSMutableArray *historyPoint;
-
+@property (retain, nonatomic) NSMutableDictionary *historyPoint;
 @end
 
 @implementation IAHistoryPoint
 
 @synthesize historyPoint = _historyPoint;
 
-- (NSMutableArray *)historyPoint
+- (NSMutableDictionary *)historyPoint
 {
     if (!_historyPoint)
     {
-        _historyPoint = [[NSMutableArray alloc] init];
+        _historyPoint = [[NSMutableDictionary alloc] init];
     }
     return _historyPoint;
 }
 
-- (void)addObjectToHistoryPoint:(id)object
+- (void)addObjectToHistoryPoint:(id<IAHistoryPointProtocol>)object
 {
     if (object)
     {
-        [self.historyPoint addObject:object];
+        [self.historyPoint setObject:object forKey:[object name]];
     }
+}
+
+- (id<IAHistoryPointProtocol>)objectWithName:(NSString *)name
+{
+    return [self.historyPoint objectForKey:name];
 }
 
 @end
