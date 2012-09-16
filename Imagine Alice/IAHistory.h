@@ -10,7 +10,7 @@
 
 #import "IAHistoryPoint.h"
 
-/// The class IAHistory represents the sequence of history points.
+/// Class IAHistory represents the sequence of history points.
 
 @interface IAHistory : NSObject
 
