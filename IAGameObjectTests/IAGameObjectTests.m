@@ -30,18 +30,16 @@
     IAGameObject *testCharacter = [[IAGameObject alloc] init];
     STAssertNotNil(testCharacter, @"testCharacter is nil");
     STAssertEqualObjects(testCharacter.name, @"Default Name", @"Wrong default name");
-    STAssertEqualObjects(testCharacter.position, [IAAbsolutePosition absolutePositionWithX:0.0 y:0.0], @"Wrong default position");
-//    STAssertTrue(testCharacter.isEnabled, @"Wrong default isEnabled state");
+    STAssertEqualObjects(testCharacter.absolutePosition, [IAAbsolutePosition absolutePositionWithX:0.0 y:0.0], @"Wrong default position");
     [testCharacter release];
 }
 
 - (void)testInitWithNamePosition
 {
-    IAGameObject *testCharacter = [[IAGameObject alloc] initWithName:@"Alice" position:[IAAbsolutePosition absolutePositionWithX:1 y:1]];
+    IAGameObject *testCharacter = [[IAGameObject alloc] initWithName:@"Alice" absolutePosition:[IAAbsolutePosition absolutePositionWithX:1 y:1]];
     STAssertNotNil(testCharacter, @"testCharacter is nil");
     STAssertEqualObjects(testCharacter.name, @"Alice", @"Wrong default name");
-    STAssertEqualObjects(testCharacter.position, [IAAbsolutePosition absolutePositionWithX:1.0 y:1.0], @"Wrong default position");
-//    STAssertTrue(testCharacter.isEnabled, @"Wrong default isEnabled state");
+    STAssertEqualObjects(testCharacter.absolutePosition, [IAAbsolutePosition absolutePositionWithX:1.0 y:1.0], @"Wrong default position");
     [testCharacter release];
 }
 
@@ -49,7 +47,7 @@
 {
     IAGameObject *testCharacter = [[IAGameObject alloc] init];
     STAssertEquals([testCharacter.name retainCount], 1u, @"Wrong retain count");
-    STAssertEquals([testCharacter.position retainCount], 1u, @"Wrong retain count");
+    STAssertEquals([testCharacter.absolutePosition retainCount], 1u, @"Wrong retain count");
     [testCharacter release];
 }
 
