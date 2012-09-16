@@ -23,7 +23,7 @@
 - (id)gameObjects
 {
     if (_gameObjects == nil)
-        _gameObjects = [[NSMutableArray alloc] init];
+        _gameObjects = [[NSMutableDictionary alloc] init];
     return _gameObjects;
 }
 
@@ -46,15 +46,21 @@
     if (self.gameObjects != nil)
     {
         IAHistoryPoint *historyPoint = [[IAHistoryPoint alloc] init];
-        for (int i = 0; i < [self.gameObjects count]; i++)
+        for (id key in self.gameObjects)
         {
-            [historyPoint addObjectToHistoryPoint:[self.gameObjects objectAtIndex:i]];
+            [historyPoint addObjectToHistoryPoint:[self.gameObjects objectForKey:key]];
         }
 #warning "Think if we need to save the board"
         // TODO We don't save the board. Do we need it?
         [self.history addHistoryPoint:historyPoint];
         [historyPoint release];
     }
+}
+
+- (void)addGameObject:(IAGameObject *)gameObject
+{
+    NSAssert(gameObject.name != nil, @"Game object name cannot be nil");
+    [self.gameObjects setObject:gameObject forKey:gameObject.name];
 }
 
 - (void)dealloc

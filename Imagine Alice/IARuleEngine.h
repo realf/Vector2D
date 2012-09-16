@@ -22,7 +22,7 @@
 @interface IARuleEngine : NSObject
 
 // Contains current game objects
-@property (retain, nonatomic) NSMutableArray *gameObjects;
+@property (retain, nonatomic) NSMutableDictionary *gameObjects;
 
 // The board used on the current level
 @property (retain, nonatomic) IABoard *board;
@@ -32,6 +32,9 @@
 
 // Saves all game objects to the history
 - (void)saveHistory;
+
+// Adds the object to the current game
+- (void)addGameObject:(IAGameObject *)gameObject;
 
 - (NSArray *)legalMovesForPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
 - (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
