@@ -59,8 +59,14 @@
 
 - (void)addGameObject:(IAGameObject *)gameObject
 {
-    NSAssert(gameObject.name != nil, @"Game object name cannot be nil");
-    [self.gameObjects setObject:gameObject forKey:gameObject.name];
+    if (gameObject.name)
+        [self.gameObjects setObject:gameObject forKey:gameObject.name];
+}
+
+- (void)removeGameObject:(IAGameObject *)gameObject
+{
+    if (gameObject.name)
+        [self.gameObjects removeObjectForKey:gameObject.name];
 }
 
 - (void)dealloc

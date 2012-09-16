@@ -24,7 +24,7 @@
 // Contains current game objects
 @property (retain, nonatomic) NSMutableDictionary *gameObjects;
 
-// The board used on the current level
+// The board we use on the current level
 @property (retain, nonatomic) IABoard *board;
 
 // Contains states of all game objects after every turn
@@ -35,6 +35,9 @@
 
 // Adds the object to the current game
 - (void)addGameObject:(IAGameObject *)gameObject;
+
+// Removes given object from the game
+- (void)removeGameObject:(IAGameObject *)gameObject;
 
 - (NSArray *)legalMovesForPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
 - (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
