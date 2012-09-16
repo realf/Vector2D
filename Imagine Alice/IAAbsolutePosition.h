@@ -1,5 +1,5 @@
 //
-//  IAPosition.h
+//  IAAbsolutePosition.h
 //  Imagine Alice
 //
 //  Created by Sergey Dunets on 8/12/12.
@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-// The position is given in absolute values. The position (0.0, 0.0) is 
-// the left bottom corner of the board cell (0, 0).
+/// Class IAAbsolutePosition represents the position in absolute values. 
+/// The position (0.0, 0.0) is the left bottom corner of the board cell (0, 0).
 
-@interface IAPosition : NSObject
+@interface IAAbsolutePosition : NSObject
 
 @property (assign, nonatomic) double x;
 @property (assign, nonatomic) double y;
 
-+ (IAPosition *)newPositionWithX:(double)x y:(double)y;
-- (id)initWithPosition:(IAPosition *)position;
++ (IAAbsolutePosition *)newAbsolutePositionWithX:(double)x y:(double)y;
+- (id)initWithAbsolutePosition:(IAAbsolutePosition *)position;
 
 @end
