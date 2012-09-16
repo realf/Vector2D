@@ -88,11 +88,22 @@
     [testBoard release];
 }
 
-- (void)testIsPositionOnBoard
+-(void)testBoardPositionForAbsolutePosition
+{
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.5 y:2.5]] x], (NSInteger)1, @"Wrong board position for absolute position");
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.0 y:2.0]] x], 1, @"Wrong board position for absolute position");
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:0.9999999 y:1.9999999]] x], 1, @"Wrong board position for absolute position");
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.0000001 y:1.9999999]] x], 1, @"Wrong board position for absolute position");
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.5 y:2.5]] y], (NSInteger)2, @"Wrong board position for absolute position");
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.0 y:2.0]] y], 2, @"Wrong board position for absolute position");
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:0.9999999 y:2.0000001]] y], 2, @"Wrong board position for absolute position");
+}
+
+- (void)testIsBoardPositionOnBoard
 {
     IABoard *testBoard = [[IABoard alloc] init];
-    STAssertTrue([testBoard isPositionOnBoard:[IAPosition newPositionWithX:1 y:1]], @"Error in check if position is on the board");
-    STAssertFalse([testBoard isPositionOnBoard:[IAPosition newPositionWithX:-1 y:-1]], @"Error in check if position is on the board");
+    STAssertTrue([testBoard isBoardPositionOnBoard:[IABoardPosition boardPositionWithX:1 y:1]], @"Error in check if position is on the board");
+    STAssertFalse([testBoard isBoardPositionOnBoard:[IABoardPosition boardPositionWithX:-1 y:-1]], @"Error in check if position is on the board");
     [testBoard release];
 }
 
