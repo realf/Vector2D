@@ -27,9 +27,9 @@
 
 - (void)testInitWithNamePositionSpeed
 {
-    IATorpedo* test = [[IATorpedo alloc] initWitName:@"Torpedo 1" position:[IAPosition newPositionWithX:1 y:1] speed:[NSNumber numberWithFloat:1.0]];
+    IATorpedo* test = [[IATorpedo alloc] initWitName:@"Torpedo 1" position:[IAAbsolutePosition absolutePositionWithX:1 y:1] speed:[NSNumber numberWithFloat:1.0]];
     STAssertEqualObjects(test.name, @"Torpedo 1", @"Wrong name");
-    STAssertEqualObjects(test.position, [IAPosition newPositionWithX:1 y:1], @"Wrong position");
+    STAssertEqualObjects(test.position, [IAAbsolutePosition absolutePositionWithX:1 y:1], @"Wrong position");
     STAssertEqualObjects(test.speed, [NSNumber numberWithFloat:1.0], @"Wrong speed");
 }
 
