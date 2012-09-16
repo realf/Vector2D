@@ -12,7 +12,7 @@
 
 @synthesize speed = _speed;
 
-- (id)initWitName:(NSString *)name position:(IAPosition *)position speed:(NSNumber *)speed
+- (id)initWitName:(NSString *)name position:(IAAbsolutePosition *)position speed:(NSNumber *)speed
 {
     if (self = [super initWithName:name position:position])
     {
