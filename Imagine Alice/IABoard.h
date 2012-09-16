@@ -18,8 +18,13 @@
 @property (assign, nonatomic) NSUInteger numCols;
 @property (assign, nonatomic) NSUInteger numRows;
 
+// Designated initializer
 - (id)initWithNumCols:(NSUInteger)numCols numRows:(NSUInteger)numRows;
+
+// Checks if given absolute position is on the board
 - (BOOL)isAbsolutePositionOnBoard:(IAAbsolutePosition *)absolutePosition;
+
+// Checks if given position (in board coordinates) is on the board
 - (BOOL)isBoardPositionOnBoard:(IABoardPosition *)boardPosition;
 
 // Converts absolute coordinates to board coordinates
