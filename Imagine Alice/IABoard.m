@@ -45,15 +45,15 @@ static const NSUInteger kDefaultBoardSize = kMinBoardSize;
 
 // Currently, since the board is rectangular and does not contain holes, 
 // we can check the board position simply comparing coordinates with numRows and numCols.
-- (BOOL)isBoardPositionOnBoard:(IABoardPosition *)position
+- (BOOL)isBoardPositionOnBoard:(IABoardPosition *)boardPosition
 {
-    return (position.x >= 0 && position.x < self.numCols && position.y >= 0 && position.y < self.numRows);
+    return (boardPosition.x >= 0 && boardPosition.x < self.numCols && boardPosition.y >= 0 && boardPosition.y < self.numRows);
 }
 
-/*- (BOOL)isAbsolutePositionOnBoard:(IAAbsolutePosition *)position
+- (BOOL)isAbsolutePositionOnBoard:(IAAbsolutePosition *)absolutePosition
 {
-    //return (self isBoardPositonOnBoard:<#(IABoardPosition *)#>
-}*/
+    return ([self isBoardPositionOnBoard:[[self class] boardPositionForAbsolutePosition:absolutePosition]]);
+}
 
 + (IABoardPosition *)boardPositionForAbsolutePosition:(IAAbsolutePosition *)absolutePosition
 {

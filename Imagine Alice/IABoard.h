@@ -20,8 +20,8 @@
 
 - (id)initWithNumCols:(NSUInteger)numCols numRows:(NSUInteger)numRows;
 - (id)init;
-- (BOOL)isAbsolutePositionOnBoard:(IAAbsolutePosition *)position;
-- (BOOL)isBoardPositionOnBoard:(IABoardPosition *)position;
+- (BOOL)isAbsolutePositionOnBoard:(IAAbsolutePosition *)absolutePosition;
+- (BOOL)isBoardPositionOnBoard:(IABoardPosition *)boardPosition;
 + (IABoardPosition *)boardPositionForAbsolutePosition:(IAAbsolutePosition *)absolutePosition;
 
 @end
