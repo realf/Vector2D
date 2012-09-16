@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+/// Every object add itself to the history point, if it wants to be saved
+
 @interface IAHistoryPoint : NSObject
 
 - (void)addObjectToHistoryPoint:(id)object;
