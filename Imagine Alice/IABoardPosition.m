@@ -13,9 +13,9 @@
 @synthesize x = _x;
 @synthesize y = _y;
 
-+ (IABoardPosition *)newBoardPositionWithX:(NSInteger)x y:(NSInteger)y
++ (IABoardPosition *)boardPositionWithX:(NSInteger)x y:(NSInteger)y
 {
-    IABoardPosition *position = [[IABoardPosition alloc] init];
+    IABoardPosition *position = [[[IABoardPosition alloc] init] autorelease];
     position.x = x;
     position.y = y;
     return position;
@@ -30,11 +30,6 @@
         _y = position.y;
     }
     return self;
-}
-
-- (id)init
-{
-    return([self initWithBoardPosition:[[self class] newBoardPositionWithX:0 y:0]]);
 }
 
 @end

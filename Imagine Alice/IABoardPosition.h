@@ -17,7 +17,7 @@
 @property (assign, nonatomic) NSInteger x;
 @property (assign, nonatomic) NSInteger y;
 
-+ (IABoardPosition *)newBoardPositionWithX:(NSInteger)x y:(NSInteger)y;
++ (IABoardPosition *)boardPositionWithX:(NSInteger)x y:(NSInteger)y;
 - (id)initWithBoardPosition:(IABoardPosition *)position;
 
 @end
