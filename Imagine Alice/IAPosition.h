@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-// Left hand bottom corner is x=0, y=0
+// The position is given in absolute values. The position (0.0, 0.0) is 
+// the left bottom corner of the board cell (0, 0).
 
 @interface IAPosition : NSObject
 
-@property (assign, nonatomic) float x;
-@property (assign, nonatomic) float y;
+@property (assign, nonatomic) double x;
+@property (assign, nonatomic) double y;
 
-+ (IAPosition *)newPositionWithX:(float)x y:(float)y;
++ (IAPosition *)newPositionWithX:(double)x y:(double)y;
 - (id)initWithPosition:(IAPosition *)position;
 
 @end

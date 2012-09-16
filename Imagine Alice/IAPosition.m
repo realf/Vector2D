@@ -13,7 +13,7 @@
 @synthesize x = _x;
 @synthesize y = _y;
 
-+ (IAPosition *)newPositionWithX:(float)x y:(float)y
++ (IAPosition *)newPositionWithX:(double)x y:(double)y
 {
     IAPosition *position = [[IAPosition alloc] init];
     position.x = x;
