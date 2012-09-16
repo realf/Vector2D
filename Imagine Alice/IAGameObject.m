@@ -14,9 +14,8 @@ static NSString * const kDefaultObjectName = @"Default Name";
 
 @synthesize name = _name;
 @synthesize position = _position;
-@synthesize isEnabled = _isEnabled;
 
-- (id)initWithName:(NSString *)name position:(IAPosition *)position
+- (id)initWithName:(NSString *)name position:(IAAbsolutePosition *)position
 {
     if (self = [super init])
     {
@@ -25,9 +24,8 @@ static NSString * const kDefaultObjectName = @"Default Name";
         else 
             _name = [[NSMutableString alloc] initWithString:kDefaultObjectName];
         
-        // If position is nil, we will automatically set _position to (0, 0)
-        _position = [[IAPosition alloc] initWithPosition:position];
-        _isEnabled = YES;
+        // If the absolute position is nil, we will automatically set _position to (0.0, 0.0)
+        _position = [[IAAbsolutePosition alloc] initWithAbsolutePosition:position];
     }
     return self;
 }

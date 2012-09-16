@@ -7,16 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IAPosition.h"
+#import "IAAbsolutePosition.h"
 
 
-// Represents the character in the game.
+// Represents objects in the game.
 @interface IAGameObject : NSObject
 
 @property (retain, nonatomic) NSMutableString *name;
-@property (retain, nonatomic) IAPosition *position;
-@property (assign, nonatomic) BOOL isEnabled;
+@property (retain, nonatomic) IAAbsolutePosition *position;
 
-- (id)initWithName:(NSString *)name position:(IAPosition *)position;
+- (id)initWithName:(NSString *)name position:(IAAbsolutePosition *)position;
 
 @end
