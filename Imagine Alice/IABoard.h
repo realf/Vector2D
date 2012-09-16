@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IAPosition.h"
+#import "IAAbsolutePosition.h"
+#import "IABoardPosition.h"
+
+/// Class IABoard represents the game board. It is responsible operations
+/// with board coordinates.
 
 @interface IABoard : NSObject
 
@@ -16,6 +20,8 @@
 
 - (id)initWithNumCols:(NSUInteger)numCols numRows:(NSUInteger)numRows;
 - (id)init;
-- (BOOL)isPositionOnBoard:(IAPosition *)position;
+- (BOOL)isAbsolutePositionOnBoard:(IAAbsolutePosition *)position;
+- (BOOL)isBoardPositionOnBoard:(IABoardPosition *)position;
++ (IABoardPosition *)boardPositionForAbsolutePosition:(IAAbsolutePosition *)absolutePosition;
 
 @end
