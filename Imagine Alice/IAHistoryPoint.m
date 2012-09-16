@@ -29,7 +29,7 @@
 
 - (void)addObjectToHistoryPoint:(id)object
 {
-    if (object != nil)
+    if (object)
     {
         [self.historyPoint addObject:object];
     }
