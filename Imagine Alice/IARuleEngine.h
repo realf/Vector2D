@@ -48,7 +48,7 @@
 
 - (void)resetGame;
 
-- (NSArray *)legalMovesForPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
+- (NSArray *)legalMovesForPosition:(IAAbsolutePosition *)position;// onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
 //- (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
 
 @end

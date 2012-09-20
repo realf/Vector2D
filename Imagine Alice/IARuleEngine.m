@@ -88,7 +88,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             //[self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice by (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
             DDLogInfo(@"iPhone moves Alice %@", direction);
             [[self.gameObjects objectForKey:@"Alice"] setAbsolutePosition:nextAlicePosition];
-            DDLogInfo(@"(%d, %d)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y]);
+            DDLogInfo(@"(%d, %d)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
         }
         else
         {
@@ -208,7 +208,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)absolutePosition
 {
-    NSArray *legalMoves = [self legalMovesForPosition:absolutePosition onTheBoardWithWidth:width height:height];
+    NSArray *legalMoves = [self legalMovesForAbsolutePosition:absolutePosition];
     NSUInteger numberOfLegalMoves = [legalMoves count];
     NSAssert(numberOfLegalMoves > 0, @"Cannot make a legal move");
     NSInteger randomMoveNumber = arc4random_uniform(numberOfLegalMoves);
