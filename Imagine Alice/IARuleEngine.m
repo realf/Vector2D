@@ -160,7 +160,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     self.history = [[IAHistory alloc] init];
     
     self.isGameOver = NO;
-    DDLogInfo(@"Let's play! Alice is at (%d, %d)", [[self gameObjects:objectForKey:@"Alice"] absolutePosition].x, [[self gameObjects:objectForKey:@"Alice"] absolutePosition].y);
+    DDLogInfo(@"Let's play! Alice is at (%d, %d)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
     //self.aliceCanGo = YES;
 }
 

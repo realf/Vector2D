@@ -1,5 +1,12 @@
-PODS:
-  - CocoaLumberjack (1.6)
 
-DEPENDENCIES:
-  - CocoaLumberjack (~> 1.6)
+SPEC CHECKSUMS: 
+  CocoaLumberjack: 0f2fa7090a23f13261072d882e017c688300efbe
+
+COCOAPODS: 0.14.0
+
+PODS: 
+- CocoaLumberjack (1.6)
+
+DEPENDENCIES: 
+- CocoaLumberjack (~> 1.6)
+- CocoaLumberjack (~> 1.6)
