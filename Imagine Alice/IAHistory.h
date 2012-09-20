@@ -20,7 +20,7 @@
 // We can get objects by their names.
 - (IAGameObject *)gameObjectWithName:(NSString *)name atHistoryPointIndex:(NSUInteger)historyPointIndex;
 
-// We can get also objects from the last history point
+// We can also get objects at the last history point
 - (IAGameObject *)gameObjectAtLastHistoryPointWithObjectName:(NSString *)name;
 
 @end

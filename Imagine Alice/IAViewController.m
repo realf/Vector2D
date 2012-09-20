@@ -18,10 +18,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 @interface IAViewController()
 
-@property (retain, nonatomic) IAAbsolutePosition *alicePosition;
-@property (assign, nonatomic) BOOL aliceCanGo;
-@property (assign, nonatomic) NSUInteger boardWidth;
-@property (assign, nonatomic) NSUInteger boardHeight;
+//@property (retain, nonatomic) IAAbsolutePosition *alicePosition;
+//@property (assign, nonatomic) BOOL aliceCanGo;
+//@property (assign, nonatomic) NSUInteger boardWidth;
+//@property (assign, nonatomic) NSUInteger boardHeight;
 @property (retain, nonatomic) IARuleEngine *ruleEngine;
 @property (retain, nonatomic) IBOutlet UILabel *screen;
 @property (retain, nonatomic) IBOutlet UIButton *theNewGameButton;
@@ -31,15 +31,15 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 @implementation IAViewController
 
-@synthesize alicePosition = _alicePosition;
-@synthesize aliceCanGo = _aliceCanGo;
-@synthesize boardWidth = _boardWidth;
-@synthesize boardHeight = _boardHeight;
+//@synthesize alicePosition = _alicePosition;
+//@synthesize aliceCanGo = _aliceCanGo;
+//@synthesize boardWidth = _boardWidth;
+//@synthesize boardHeight = _boardHeight;
 @synthesize screen = _screen;
 @synthesize theNewGameButton = _theNewGameButton;
 @synthesize ruleEngine = _ruleEngine;
 
-- (IARuleEngine *)ruleEngine
+/*- (IARuleEngine *)ruleEngine
 {
     if (nil == _ruleEngine)
     {
@@ -47,8 +47,8 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     }
     
     return _ruleEngine;
-}
-
+}*/
+/*
 - (IAAbsolutePosition *)alicePosition
 {
     if (nil == _alicePosition)
@@ -57,59 +57,16 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     }
     
     return _alicePosition;
-}
-
-- (void)resetGame
-{
-    self.boardWidth = 3;
-    self.boardHeight = 3;
-    self.alicePosition.x = self.boardWidth / 2;
-    self.alicePosition.y = self.boardHeight / 2;
-    [self.screen setText:[NSString stringWithFormat:@"Let's play! Alice is at (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
-    DDLogInfo(@"%@", [NSString stringWithFormat:@"Let's play! Alice is at (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
-    self.aliceCanGo = YES;
-}
+}*/
 
 - (IBAction)directionButtonPressed:(UIButton *)sender 
 {
-    if (self.aliceCanGo)
-    {
-        [self.theNewGameButton setHidden:YES];
-        if ([[sender currentTitle] isEqualToString:@"Up"])
-            self.alicePosition.y++;
-        else if ([[sender currentTitle] isEqualToString:@"Down"])
-            self.alicePosition.y--;
-        else if ([[sender currentTitle] isEqualToString:@"Right"])
-            self.alicePosition.x++;
-        else if ([[sender currentTitle] isEqualToString:@"Left"])
-            self.alicePosition.x--;
-        
-        // If Alice is inside the board
-        if ([self.ruleEngine isPosition:self.alicePosition insideTheBoardWithWidth:self.boardWidth height:self.boardHeight])
-        {
-            // Show Alice position 
-            // [self.screen setText:[NSString stringWithFormat:@"Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
-            DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
-            
-            // Let the computer make his move
-            IAAbsolutePosition *nextAlicePosition = [self.ruleEngine makeRandomMoveFromPosition:self.alicePosition onTheBoardWithWidth:self.boardWidth height:self.boardHeight];
-            [self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice by (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
-            self.alicePosition = nextAlicePosition;             
-            DDLogInfo(@"%@", [NSString stringWithFormat:@"iPhone moves Alice to (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
-        }
-        else
-        {
-            [self.screen setText:[NSString stringWithFormat:@"Game over! Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
-            DDLogInfo(@"%@", [NSString stringWithFormat:@"Game over! Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]);
-            self.aliceCanGo = NO;
-            [self.theNewGameButton setHidden:NO];
-        }
-    }
+    [self.ruleEngine moveAliceToDirection:[sender currentTitle]];
 }
 
 - (IBAction)theNewGameButtonPressed:(id)sender
 {
-    [self resetGame];
+    [[self ruleEngine] resetGame];
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,7 +79,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (void)viewDidLoad
 {
-    [self resetGame];
+    [self.ruleEngine resetGame];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -163,7 +120,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 - (void)dealloc {
-    [_alicePosition release];
+//    [_alicePosition release];
     [_screen release];
     [_ruleEngine release];
     [_theNewGameButton release];

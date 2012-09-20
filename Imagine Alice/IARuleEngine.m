@@ -9,6 +9,13 @@
 #import "IARuleEngine.h"
 #import "IABoard.h"
 #import "IAMove.h"
+#import "DDLog.h"
+
+#ifdef DEBUG
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_ERROR;
+#endif
 
 @interface IARuleEngine()
 
@@ -19,8 +26,9 @@
 @synthesize history = _history;
 @synthesize gameObjects = _gameObjects;
 @synthesize board = _board;
+@synthesize isGameOver = _isGameOver;
 
-- (id)gameObjects
+/*- (id)gameObjects
 {
     if (_gameObjects == nil)
         _gameObjects = [[NSMutableDictionary alloc] init];
@@ -34,11 +42,62 @@
     return _history;
 }
 
+
 - (id)board
 {
     if (_board == nil)
         _board = [[IABoard alloc] init];
     return _board;
+}
+ */
+
+#warning "This is a stub. Add the level loader in future."
+// This is a stub. Later we will load levels with different rules and objects.
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        [self resetGame];
+    }
+    return self;
+}
+
+#warning "Stub method"
+// Stub
+- (void)moveAliceToDirection:(NSString *)direction
+{
+    if (!self.isGameOver)
+    {
+        if ([direction isEqualToString:@"Up"])
+            [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y += 1.0;
+        else if ([direction isEqualToString:@"Down"])
+            [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y -= 1.0;
+        else if ([direction isEqualToString:@"Right"])
+            [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x += 1.0;
+        else if ([direction isEqualToString:@"Left"])
+            [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x -= 1.0;
+        
+        // If Alice is inside the board
+        if ([self.board isAbsolutePositionOnBoard:[[self.gameObjects objectForKey:@"Alice"] absolutePosition]])
+        {
+            DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%d, %d)", [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] x], [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] y]]);
+            
+            // Let the computer make his move
+            IAAbsolutePosition *nextAlicePosition = [self makeRandomMoveFromPosition:[[self.gameObjects objectForKey:@"Alice"] absolutePosition]];
+            //[self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice by (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
+            DDLogInfo(@"iPhone moves Alice %@", direction);
+            [[self.gameObjects objectForKey:@"Alice"] setAbsolutePosition:nextAlicePosition];
+            DDLogInfo(@"(%d, %d)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y]);
+        }
+        else
+        {
+            //[self.screen setText:[NSString stringWithFormat:@"Game over! Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
+            DDLogInfo(@"Game over! Alice position is (%d, %d)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+            self.isGameOver = YES;
+            //[self.theNewGameButton setHidden:NO];
+        }
+    }
 }
 
 - (void)saveHistory
@@ -76,7 +135,36 @@
     [_board release];
 }
 
-- (NSArray *)legalMovesForPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height
+- (void)resetGame
+{
+    /*self.boardWidth = 3;
+     self.boardHeight = 3;
+     self.alicePosition.x = self.boardWidth / 2;
+     self.alicePosition.y = self.boardHeight / 2;
+     [self.screen setText:[NSString stringWithFormat:@"Let's play! Alice is at (%d, %d)", self.alicePosition.x, self.alicePosition.y]];*/
+    
+    if (self.board)
+        [self.board release];
+    self.board = [[IABoard alloc] initWithNumCols:3 numRows:3];
+    
+    // Put Alice to the center
+    IAGameObject *alice = [[IAGameObject alloc] initWithName:@"Alice" absolutePosition:[IAAbsolutePosition absolutePositionWithX:self.board.numCols/2 y:self.board.numRows/2]];
+    
+    if (self.gameObjects)
+        [self.gameObjects release];
+    self.gameObjects = [[NSMutableDictionary alloc] init];
+    [self addGameObject:alice];
+    
+    if (self.history)
+        [self.history release];
+    self.history = [[IAHistory alloc] init];
+    
+    self.isGameOver = NO;
+    DDLogInfo(@"Let's play! Alice is at (%d, %d)", [[self gameObjects:objectForKey:@"Alice"] absolutePosition].x, [[self gameObjects:objectForKey:@"Alice"] absolutePosition].y);
+    //self.aliceCanGo = YES;
+}
+
+- (NSArray *)legalMovesForAbsolutePosition:(IAAbsolutePosition *)absolutePosition
 {
     NSMutableArray *legalMoves = [[[NSMutableArray alloc] init] autorelease];
     
@@ -86,48 +174,48 @@
     IAMove *moveRight = [IAMove moveWithNumberOfStepsInXDirection:1 yDirection:0];
     IAMove *moveLeft = [IAMove moveWithNumberOfStepsInXDirection:-1 yDirection:0];
     
-    IAAbsolutePosition *positionAfterMove = [[IAAbsolutePosition alloc] init];
+    IAAbsolutePosition *absolutePositionAfterMove = [[IAAbsolutePosition alloc] init];
     
     // Search for all possible moves by checking the position on the board after each move
-    positionAfterMove.y = position.y + moveUp.deltaY;
-    if (YES == [self isPosition:positionAfterMove insideTheBoardWithWidth:width height:height])
+    absolutePositionAfterMove.y = absolutePosition.y + moveUp.deltaY;
+    if (YES == [self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
     {
         [legalMoves addObject:moveUp];
     }
     
-    positionAfterMove.y = position.y + moveDown.deltaY;
-    if (YES == [self isPosition:positionAfterMove insideTheBoardWithWidth:width height:height])
+    absolutePositionAfterMove.y = absolutePosition.y + moveDown.deltaY;
+    if (YES == [self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
     {
         [legalMoves addObject:moveDown];
     }
     
-    positionAfterMove.y = position.y;
-    positionAfterMove.x = position.x + moveRight.deltaX;
-    if (YES == [self isPosition:positionAfterMove insideTheBoardWithWidth:width height:height])
+    absolutePositionAfterMove.y = absolutePosition.y;
+    absolutePositionAfterMove.x = absolutePosition.x + moveRight.deltaX;
+    if (YES == [self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
     {
         [legalMoves addObject:moveRight];
     }
     
-    positionAfterMove.x = position.x + moveLeft.deltaX;
-    if (YES == [self isPosition:positionAfterMove insideTheBoardWithWidth:width height:height])
+    absolutePositionAfterMove.x = absolutePosition.x + moveLeft.deltaX;
+    if (YES == [self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
     {
         [legalMoves addObject:moveLeft];
     }
     
-    [positionAfterMove release];
+    [absolutePositionAfterMove release];
     return legalMoves;
 }
 
-- (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height
+- (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)absolutePosition
 {
-    NSArray *legalMoves = [self legalMovesForPosition:position onTheBoardWithWidth:width height:height];
+    NSArray *legalMoves = [self legalMovesForPosition:absolutePosition onTheBoardWithWidth:width height:height];
     NSUInteger numberOfLegalMoves = [legalMoves count];
     NSAssert(numberOfLegalMoves > 0, @"Cannot make a legal move");
     NSInteger randomMoveNumber = arc4random_uniform(numberOfLegalMoves);
     NSAssert(randomMoveNumber >= 0 && randomMoveNumber < numberOfLegalMoves, @"randomMoveNumber is out of range");
     IAAbsolutePosition *nextPosition = [[[IAAbsolutePosition alloc] init] autorelease];
-    nextPosition.x = position.x + [[legalMoves objectAtIndex:randomMoveNumber] deltaX];
-    nextPosition.y = position.y + [[legalMoves objectAtIndex:randomMoveNumber] deltaY];
+    nextPosition.x = absolutePosition.x + [[legalMoves objectAtIndex:randomMoveNumber] deltaX];
+    nextPosition.y = absolutePosition.y + [[legalMoves objectAtIndex:randomMoveNumber] deltaY];
     return nextPosition;
 }
 

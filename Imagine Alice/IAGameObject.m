@@ -15,7 +15,8 @@ static NSString * const kDefaultObjectName = @"Default Name";
 @synthesize name = _name;
 @synthesize absolutePosition = _position;
 
-- (id)initWithName:(NSString *)name absolutePosition:(IAAbsolutePosition *)absolutePosition
+- (id)initWithName:(NSString *)name 
+  absolutePosition:(IAAbsolutePosition *)absolutePosition
 {
     if (self = [super init])
     {

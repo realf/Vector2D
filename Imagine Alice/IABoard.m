@@ -8,7 +8,6 @@
 
 #import "IABoard.h"
 #import "IAGlobalConstants.h"
-#import "IABoardPosition.h"
 
 static const NSUInteger kMaxBoardSize = 10;
 static const NSUInteger kMinBoardSize = 3;

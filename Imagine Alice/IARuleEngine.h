@@ -30,6 +30,9 @@
 // Contains states of all game objects after every turn
 @property (retain, nonatomic) IAHistory *history;
 
+// Set this if the game ends
+@property (assign, nonatomic) BOOL isGameOver;
+
 // Saves all game objects to the history
 - (void)saveHistory;
 
@@ -39,7 +42,13 @@
 // Removes given object from the game
 - (void)removeGameObject:(IAGameObject *)gameObject;
 
+#warning "stub"
+// stub
+- (void)moveAliceToDirection:(NSString *)direction;
+
+- (void)resetGame;
+
 - (NSArray *)legalMovesForPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
-- (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
+//- (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
 
 @end
