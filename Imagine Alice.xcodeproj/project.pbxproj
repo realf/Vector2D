@@ -63,9 +63,11 @@
 		04A0915815EEB21E00FE9410 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A0915615EEB21E00FE9410 /* InfoPlist.strings */; };
 		04A0915B15EEB21E00FE9410 /* IARuleEngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0915A15EEB21E00FE9410 /* IARuleEngineTests.m */; };
 		04A0916015EEB23800FE9410 /* IARuleEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39F15D762950046A0B5 /* IARuleEngine.m */; };
+		04CF5824160BE56100EF5422 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976915CF4A5700E70EFC /* CoreGraphics.framework */; };
 		04FB34BA15E2E16F006EA792 /* IABoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB34B915E2E16F006EA792 /* IABoard.m */; };
 		04FF96D515D2174200C46F7C /* CocoaLumberjackCustomFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B2998C391441D682F98D3D /* libPods.a */; };
+		6E6FDB54914D4EB8B24C4A6B /* libPods-IARuleEngineTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDBFFFA2781248E8A356B602 /* libPods-IARuleEngineTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +79,7 @@
 		040AF39E15D762950046A0B5 /* IARuleEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IARuleEngine.h; sourceTree = "<group>"; };
 		040AF39F15D762950046A0B5 /* IARuleEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IARuleEngine.m; sourceTree = "<group>"; };
 		04101DC415E43FEC006FB070 /* IAGameObjectTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IAGameObjectTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		04101DC515E43FEC006FB070 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		04101DC515E43FEC006FB070 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		04101DDE15E44A19006FB070 /* IABoardTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IABoardTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04101DE415E44A19006FB070 /* IABoardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IABoardTests-Info.plist"; sourceTree = "<group>"; };
 		04101DE615E44A19006FB070 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -128,7 +130,9 @@
 		04FB34B915E2E16F006EA792 /* IABoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IABoard.m; sourceTree = "<group>"; };
 		04FF96D315D2174200C46F7C /* CocoaLumberjackCustomFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjackCustomFormatter.h; sourceTree = "<group>"; };
 		04FF96D415D2174200C46F7C /* CocoaLumberjackCustomFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaLumberjackCustomFormatter.m; sourceTree = "<group>"; };
+		6C5C0FC330654685B5035F37 /* Pods-IARuleEngineTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IARuleEngineTests.xcconfig"; path = "Pods/Pods-IARuleEngineTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		BDBFFFA2781248E8A356B602 /* libPods-IARuleEngineTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IARuleEngineTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6B2998C391441D682F98D3D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -179,9 +183,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CF5824160BE56100EF5422 /* CoreGraphics.framework in Frameworks */,
 				04A0915015EEB21E00FE9410 /* SenTestingKit.framework in Frameworks */,
 				04A0915115EEB21E00FE9410 /* UIKit.framework in Frameworks */,
 				04A0915215EEB21E00FE9410 /* Foundation.framework in Frameworks */,
+				6E6FDB54914D4EB8B24C4A6B /* libPods-IARuleEngineTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +226,7 @@
 				041C976B15CF4A5700E70EFC /* Imagine Alice */,
 				A42948F85EE34FCFB4A5CABB /* Pods.xcconfig */,
 				041C976215CF4A5700E70EFC /* Products */,
+				6C5C0FC330654685B5035F37 /* Pods-IARuleEngineTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +250,7 @@
 				041C976915CF4A5700E70EFC /* CoreGraphics.framework */,
 				E6B2998C391441D682F98D3D /* libPods.a */,
 				04101DC515E43FEC006FB070 /* SenTestingKit.framework */,
+				BDBFFFA2781248E8A356B602 /* libPods-IARuleEngineTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -435,6 +443,7 @@
 				04A0914B15EEB21E00FE9410 /* Frameworks */,
 				04A0914C15EEB21E00FE9410 /* Resources */,
 				04A0914D15EEB21E00FE9410 /* ShellScript */,
+				00C94D564B6745D59B0EE883 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -521,6 +530,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		00C94D564B6745D59B0EE883 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-IARuleEngineTests-resources.sh\"\n";
+		};
 		04101DC215E43FEC006FB070 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -885,6 +908,7 @@
 		};
 		04A0915E15EEB21E00FE9410 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C5C0FC330654685B5035F37 /* Pods-IARuleEngineTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -900,6 +924,7 @@
 		};
 		04A0915F15EEB21E00FE9410 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C5C0FC330654685B5035F37 /* Pods-IARuleEngineTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
