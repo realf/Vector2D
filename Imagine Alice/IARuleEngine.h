@@ -46,7 +46,7 @@
 // stub
 - (void)moveAliceToDirection:(NSString *)direction;
 
-- (void)resetGame;
+//- (void)resetGame;
 
 - (NSArray *)legalMovesForAbsolutePosition:(IAAbsolutePosition *)absolutePosition;// onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
 - (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position;// onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;

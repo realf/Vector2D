@@ -45,4 +45,10 @@
     return ([self gameObjectWithName:name atHistoryPointIndex:[self.history count] - 1]);
 }
 
+- (void)dealloc
+{
+    [_history release];
+    [super dealloc];
+}
+
 @end

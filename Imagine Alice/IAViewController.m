@@ -39,7 +39,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 @synthesize theNewGameButton = _theNewGameButton;
 @synthesize ruleEngine = _ruleEngine;
 
-/*- (IARuleEngine *)ruleEngine
+- (IARuleEngine *)ruleEngine
 {
     if (nil == _ruleEngine)
     {
@@ -47,17 +47,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     }
     
     return _ruleEngine;
-}*/
-/*
-- (IAAbsolutePosition *)alicePosition
-{
-    if (nil == _alicePosition)
-    {
-        _alicePosition = [[IAAbsolutePosition alloc] init];
-    }
-    
-    return _alicePosition;
-}*/
+}
 
 - (IBAction)directionButtonPressed:(UIButton *)sender 
 {
@@ -66,7 +56,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (IBAction)theNewGameButtonPressed:(id)sender
 {
-    [[self ruleEngine] resetGame];
+    [[self ruleEngine] release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +69,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (void)viewDidLoad
 {
-    [self.ruleEngine resetGame];
+    //[self.ruleEngine release];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

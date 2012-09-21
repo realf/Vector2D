@@ -38,4 +38,10 @@
     return [self.historyPoint objectForKey:name];
 }
 
+-(void)dealloc
+{
+    [_historyPoint release];
+    [super dealloc];
+}
+
 @end

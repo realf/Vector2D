@@ -81,19 +81,19 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         // If Alice is inside the board
         if ([self.board isAbsolutePositionOnBoard:[[self.gameObjects objectForKey:@"Alice"] absolutePosition]])
         {
-            DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%d, %d)", [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] x], [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] y]]);
+            DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%f, %f)", [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] x], [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] y]]);
             
             // Let the computer make his move
             IAAbsolutePosition *nextAlicePosition = [self makeRandomMoveFromPosition:[[self.gameObjects objectForKey:@"Alice"] absolutePosition]];
             //[self.screen setText:[NSString stringWithFormat:@"iPhone moves Alice by (%d, %d)", nextAlicePosition.x - self.alicePosition.x, nextAlicePosition.y - self.alicePosition.y]];
-            DDLogInfo(@"iPhone moves Alice %@", direction);
+            //DDLogInfo(@"iPhone moves Alice %@\n---------\n", direction);
             [[self.gameObjects objectForKey:@"Alice"] setAbsolutePosition:nextAlicePosition];
-            DDLogInfo(@"(%d, %d)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+            DDLogInfo(@"iPhone moves to (%f, %f)\n----\n", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
         }
         else
         {
             //[self.screen setText:[NSString stringWithFormat:@"Game over! Alice position is (%d, %d)", self.alicePosition.x, self.alicePosition.y]];
-            DDLogInfo(@"Game over! Alice position is (%d, %d)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+            DDLogInfo(@"Game over! Alice position is (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
             self.isGameOver = YES;
             //[self.theNewGameButton setHidden:NO];
         }
@@ -133,6 +133,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     [_history release];
     [_gameObjects release];
     [_board release];
+    [super dealloc];
 }
 
 - (void)resetGame
@@ -160,7 +161,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     self.history = [[IAHistory alloc] init];
     
     self.isGameOver = NO;
-    DDLogInfo(@"Let's play! Alice is at (%d, %d)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+    DDLogInfo(@"Let's play! Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
     //self.aliceCanGo = YES;
 }
 

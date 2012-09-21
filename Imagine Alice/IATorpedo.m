@@ -24,6 +24,7 @@
 - (void)dealloc
 {
     [_speed release];
+    [super dealloc];
 }
 
 @end
