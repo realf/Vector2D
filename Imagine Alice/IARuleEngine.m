@@ -18,7 +18,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 #endif
 
 @interface IARuleEngine()
-
+- (void)resetGame;
 @end
 
 @implementation IARuleEngine
@@ -138,10 +138,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (void)resetGame
 {
-    /*self.boardWidth = 3;
-     self.boardHeight = 3;
-     self.alicePosition.x = self.boardWidth / 2;
-     self.alicePosition.y = self.boardHeight / 2;
+    /*
      [self.screen setText:[NSString stringWithFormat:@"Let's play! Alice is at (%d, %d)", self.alicePosition.x, self.alicePosition.y]];*/
     
     if (self.board)

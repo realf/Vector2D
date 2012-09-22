@@ -56,7 +56,8 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (IBAction)theNewGameButtonPressed:(id)sender
 {
-    [[self ruleEngine] release];
+    if (self.ruleEngine)
+        [self.ruleEngine release];
 }
 
 - (void)didReceiveMemoryWarning
