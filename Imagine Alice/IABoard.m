@@ -19,7 +19,7 @@ static const NSUInteger kDefaultBoardSize = kMinBoardSize;
 @synthesize numRows = _numRows;
 
 // Designated initializer.
-// It checks if values are valid and if they are not, it uses defaults.
+// It checks if values are valid and, if they are not valid, it uses defaults.
 - (id)initWithNumCols:(NSUInteger)numCols numRows:(NSUInteger)numRows
 {
     if (self = [super init]) 
@@ -54,9 +54,14 @@ static const NSUInteger kDefaultBoardSize = kMinBoardSize;
     return ([self isBoardPositionOnBoard:[[self class] boardPositionForAbsolutePosition:absolutePosition]]);
 }
 
+// Determines the position in board coordinates for a given absolute position
 + (IABoardPosition *)boardPositionForAbsolutePosition:(IAAbsolutePosition *)absolutePosition
 {
     IABoardPosition *boardPosition = [[[IABoardPosition alloc] init] autorelease];
+    
+    // Absolute coordinate z is treated as equal to board coordinate x,
+    // if it meets the condition:
+    // (x - epsilon) < z < (x + 1 - epsilon)
     if (fabs(ceil(absolutePosition.x) - absolutePosition.x) < EPSILON)
         boardPosition.x = (NSInteger)ceil(absolutePosition.x);
     else
