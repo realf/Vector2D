@@ -12,12 +12,14 @@
 
 @synthesize deltaX = _deltaX;
 @synthesize deltaY = _deltaY;
+@synthesize moveDescription = _moveDescription;
 
-+ (IAMove *)moveWithNumberOfStepsInXDirection:(NSInteger)deltaX yDirection:(NSInteger)deltaY
++ (IAMove *)moveByAbsoluteDeltaX:(double)deltaX deltaY:(double)deltaY moveDescription:(NSString *)moveDescription
 {
     IAMove *move = [[[IAMove alloc] init] autorelease];
     move.deltaX = deltaX;
     move.deltaY = deltaY;
+    move.moveDescription = moveDescription;
     return move;
 }
 

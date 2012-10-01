@@ -41,12 +41,10 @@
 		045F233E160BCD030036E399 /* IARuleEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39F15D762950046A0B5 /* IARuleEngine.m */; };
 		04A0912015EE66CF00FE9410 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A0911A15EE66CF00FE9410 /* InfoPlist.strings */; };
 		04A0912115EE66CF00FE9410 /* IAGameObjectTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A0911C15EE66CF00FE9410 /* IAGameObjectTests-Info.plist */; };
-		04A0912215EE66CF00FE9410 /* IAGameObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0911F15EE66CF00FE9410 /* IAGameObjectTests.m */; };
 		04A0912615EE684200FE9410 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04101DC515E43FEC006FB070 /* SenTestingKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		04A0912715EE688C00FE9410 /* IAGameObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0911F15EE66CF00FE9410 /* IAGameObjectTests.m */; };
 		04A0912A15EE692A00FE9410 /* IAGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912915EE692A00FE9410 /* IAGameObject.m */; };
 		04A0912B15EE692A00FE9410 /* IAGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912915EE692A00FE9410 /* IAGameObject.m */; };
-		04A0912C15EE6AF200FE9410 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04101DC515E43FEC006FB070 /* SenTestingKit.framework */; };
 		04A0912F15EE763100FE9410 /* IATorpedo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912E15EE763000FE9410 /* IATorpedo.m */; };
 		04A0913015EE763100FE9410 /* IATorpedo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912E15EE763000FE9410 /* IATorpedo.m */; };
 		04A0913715EE965900FE9410 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04101DC515E43FEC006FB070 /* SenTestingKit.framework */; };
@@ -165,7 +163,6 @@
 				041C976815CF4A5700E70EFC /* Foundation.framework in Frameworks */,
 				041C976A15CF4A5700E70EFC /* CoreGraphics.framework in Frameworks */,
 				3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */,
-				04A0912C15EE6AF200FE9410 /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +643,6 @@
 				040AF39A15D761000046A0B5 /* IAAbsolutePosition.m in Sources */,
 				040AF39D15D761CF0046A0B5 /* IAMove.m in Sources */,
 				04FB34BA15E2E16F006EA792 /* IABoard.m in Sources */,
-				04A0912215EE66CF00FE9410 /* IAGameObjectTests.m in Sources */,
 				04A0912A15EE692A00FE9410 /* IAGameObject.m in Sources */,
 				04A0912F15EE763100FE9410 /* IATorpedo.m in Sources */,
 				043C63741605F87F00763717 /* IAHistoryPoint.m in Sources */,

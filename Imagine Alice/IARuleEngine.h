@@ -11,6 +11,8 @@
 #import "IABoard.h"
 #import "IAHistory.h"
 
+static NSString * const IAObjectMovedNotification = @"IAObjectMovedNotification";
+
 /***
  Class IARuleEngine provides basic game rules. 
  It manages the gameplay and interaction of main game objects. 
@@ -33,6 +35,9 @@
 // Set this if the game ends
 @property (assign, nonatomic) BOOL isGameOver;
 
+// The game begins here
+- (void)startGame;
+
 // Saves all game objects to the history
 - (void)saveHistory;
 
@@ -45,10 +50,5 @@
 #warning "stub"
 // stub
 - (void)moveAliceToDirection:(NSString *)direction;
-
-//- (void)resetGame;
-
-- (NSArray *)legalMovesForAbsolutePosition:(IAAbsolutePosition *)absolutePosition;// onTheBoardWithWidth:(NSUInteger)width height:(NSUInteger)height;
-- (IAAbsolutePosition *)makeRandomMoveFromPosition:(IAAbsolutePosition *)position;// onTheBoardWithWidth:(NSInteger)width height:(NSInteger)height;
 
 @end

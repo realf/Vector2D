@@ -18,10 +18,6 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 @interface IAViewController()
 
-//@property (retain, nonatomic) IAAbsolutePosition *alicePosition;
-//@property (assign, nonatomic) BOOL aliceCanGo;
-//@property (assign, nonatomic) NSUInteger boardWidth;
-//@property (assign, nonatomic) NSUInteger boardHeight;
 @property (retain, nonatomic) IARuleEngine *ruleEngine;
 @property (retain, nonatomic) IBOutlet UILabel *screen;
 @property (retain, nonatomic) IBOutlet UIButton *theNewGameButton;
@@ -31,23 +27,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 @implementation IAViewController
 
-//@synthesize alicePosition = _alicePosition;
-//@synthesize aliceCanGo = _aliceCanGo;
-//@synthesize boardWidth = _boardWidth;
-//@synthesize boardHeight = _boardHeight;
 @synthesize screen = _screen;
 @synthesize theNewGameButton = _theNewGameButton;
 @synthesize ruleEngine = _ruleEngine;
-
-- (IARuleEngine *)ruleEngine
-{
-    if (nil == _ruleEngine)
-    {
-        _ruleEngine = [[IARuleEngine alloc] init];
-    }
-    
-    return _ruleEngine;
-}
 
 - (IBAction)directionButtonPressed:(UIButton *)sender 
 {
@@ -56,8 +38,13 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (IBAction)theNewGameButtonPressed:(id)sender
 {
-    if (self.ruleEngine)
-        [self.ruleEngine release];
+    [self.ruleEngine startGame];
+}
+
+- (void)objectMoved:(NSNotification *)notification
+{
+    NSString *moveDescription = [notification object];
+    self.screen.text = moveDescription;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,8 +57,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (void)viewDidLoad
 {
-    //[self.ruleEngine release];
     [super viewDidLoad];
+    _ruleEngine = [[IARuleEngine alloc] init];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(objectMoved:) name:IAObjectMovedNotification object:nil];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -111,10 +99,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 - (void)dealloc {
-//    [_alicePosition release];
     [_screen release];
     [_ruleEngine release];
     [_theNewGameButton release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 @end

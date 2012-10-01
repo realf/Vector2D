@@ -14,8 +14,9 @@
 @interface IAMove : NSObject
 
 // {deltaX=0, deltaY=1} is up; {0, -1} is down; {1, 0} is right; {-1, 0} is left.
-@property (assign, nonatomic) NSInteger deltaX;
-@property (assign, nonatomic) NSInteger deltaY;
-+ (IAMove *)moveWithNumberOfStepsInXDirection:(NSInteger)deltaX yDirection:(NSInteger)deltaY;
+@property (assign, nonatomic) double deltaX;
+@property (assign, nonatomic) double deltaY;
+@property (retain, nonatomic) NSString *moveDescription;
++ (IAMove *)moveByAbsoluteDeltaX:(double)deltaX deltaY:(double)deltaY moveDescription:(NSString *)moveDescription;
 
 @end
