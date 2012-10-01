@@ -29,7 +29,7 @@
 {
     IARuleEngine *testEngine = [[IARuleEngine alloc] init];
     IAGameObject *testObject = [[IAGameObject alloc] initWithName:@"test name" absolutePosition:[IAAbsolutePosition absolutePositionWithX:2.5 y:1.3]];
-    [testEngine.gameObjects setObject:testObject forKey:testObject.name];
+    [testEngine addGameObject:testObject];
     
     [testEngine saveHistory];
     
