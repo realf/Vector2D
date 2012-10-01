@@ -35,6 +35,11 @@
     }
 }
 
+- (void)clear
+{
+    [self.history removeAllObjects];
+}
+
 - (IAGameObject *)gameObjectWithName:(NSString *)name atHistoryPointIndex:(NSUInteger)historyPointIndex
 {
     return ([[self.history objectAtIndex:historyPointIndex] objectWithName:name]);

@@ -23,4 +23,6 @@
 // We can also get objects at the last history point
 - (IAGameObject *)gameObjectAtLastHistoryPointWithObjectName:(NSString *)name;
 
+- (void)clear;
+
 @end
