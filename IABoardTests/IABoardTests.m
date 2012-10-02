@@ -91,11 +91,11 @@
 
 -(void)testBoardPositionForAbsolutePosition
 {
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.5 y:2.5]] x], (NSInteger)1, @"Wrong board position for absolute position");
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.5 y:2.5]] x], 1, @"Wrong board position for absolute position");
     STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.0 y:2.0]] x], 1, @"Wrong board position for absolute position");
     STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:0.9999999 y:1.9999999]] x], 1, @"Wrong board position for absolute position");
     STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.0000001 y:1.9999999]] x], 1, @"Wrong board position for absolute position");
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.5 y:2.5]] y], (NSInteger)2, @"Wrong board position for absolute position");
+    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.5 y:2.5]] y], 2, @"Wrong board position for absolute position");
     STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:1.0 y:2.0]] y], 2, @"Wrong board position for absolute position");
     STAssertEquals([[IABoard boardPositionForAbsolutePosition:[IAAbsolutePosition absolutePositionWithX:0.9999999 y:2.0000001]] y], 2, @"Wrong board position for absolute position");
 }
