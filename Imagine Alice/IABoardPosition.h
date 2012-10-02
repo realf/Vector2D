@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-/// Class IABoardPosition represents the position in board values. 
-/// All objects with absolute coordinates in the range of
-/// [0.0, 0.0; 1.0, 1.0) have the board coordinates (0, 0);
+/// Class IABoardPosition represents the position in the board coordinate system. 
 
 @interface IABoardPosition : NSObject
 
