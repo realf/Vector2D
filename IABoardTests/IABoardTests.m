@@ -105,8 +105,8 @@
     IABoard *testBoard = [[IABoard alloc] init];
     STAssertTrue([testBoard isBoardPositionOnBoard:[IABoardPosition boardPositionWithX:1 y:1]], @"Error in check if position is on the board");
     STAssertFalse([testBoard isBoardPositionOnBoard:[IABoardPosition boardPositionWithX:-1 y:-1]], @"Error in check if position is on the board");
-    STAssertTrue([testBoard isBoardPositionOnBoard:[IABoardPosition boardPositionWithX:EPSILON/10.0 y:1]], @"Error in check if position is on the board");
-    STAssertTrue([testBoard isBoardPositionOnBoard:[IABoardPosition boardPositionWithX:-EPSILON/10.0 y:1]], @"Error in check if position is on the board");
+    STAssertTrue([testBoard isBoardPositionOnBoard:[IABoardPosition boardPositionWithX:EPSILON/2.0 y:1]], @"Error in check if position is on the board");
+    STAssertTrue([testBoard isBoardPositionOnBoard:[IABoardPosition boardPositionWithX:-EPSILON/2.0 y:1]], @"Error in check if position is on the board");
     [testBoard release];
 }
 
