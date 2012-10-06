@@ -178,6 +178,7 @@ static Vector2D* xy = nil;
 {
   if(isZero(x)) x = 0.0f;
   if(isZero(y)) y = 0.0f;
+  return self;
 }
 
 - (Vector2D*) zero
