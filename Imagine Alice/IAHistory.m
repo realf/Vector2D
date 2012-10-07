@@ -40,14 +40,14 @@
     [self.history removeAllObjects];
 }
 
-- (IAGameObject *)gameObjectWithName:(NSString *)name atHistoryPointIndex:(NSUInteger)historyPointIndex
+- (IAGameObject *)gameObject:(IAGameObject *)object atHistoryPointWithIndex:(NSUInteger)index
 {
-    return ([[self.history objectAtIndex:historyPointIndex] objectWithName:name]);
+    return ([[self.history objectAtIndex:index] objectWithName:object.name]);
 }
 
-- (IAGameObject *)gameObjectAtLastHistoryPointWithObjectName:(NSString *)name
+- (IAGameObject *)gameObjectAtPreviousHistoryPoint:(IAGameObject *)object
 {
-    return ([self gameObjectWithName:name atHistoryPointIndex:[self.history count] - 1]);
+    return ([self gameObject:object atHistoryPointWithIndex:[self.history count] - 1]);
 }
 
 - (void)dealloc

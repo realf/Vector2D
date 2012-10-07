@@ -28,13 +28,13 @@
 - (void)testSaveHistory
 {
     IARuleEngine *testEngine = [[IARuleEngine alloc] init];
-    IAGameObject *testObject = [[IAGameObject alloc] initWithName:@"test name" absolutePosition:[IAAbsolutePosition absolutePositionWithX:2.5 y:1.3]];
+    IAGameObject *testObject = [[IAGameObject alloc] initWithName:@"test name" absolutePosition:[Vector2D withX:2.5 Y:1.3] availableMoves:nil];
     [testEngine addGameObject:testObject];
     
     [testEngine saveHistory];
     
-    STAssertEqualObjects([[[testEngine history] gameObjectAtLastHistoryPointWithObjectName:@"test name"] absolutePosition], [IAAbsolutePosition absolutePositionWithX:2.5 y:1.3], @"Wrong object in history");
-    STAssertEqualObjects([[[testEngine history] gameObjectAtLastHistoryPointWithObjectName:@"test name"] name], @"test name", @"Wrong object in history");
+    STAssertEqualObjects([[[testEngine history] gameObjectAtPreviousHistoryPoint:testObject] absolutePosition], [Vector2D withX:2.5 Y:1.3], @"Wrong object in history");
+    STAssertEqualObjects([[[testEngine history] gameObjectAtPreviousHistoryPoint:testObject] name], @"test name", @"Wrong object in history");
     
     [testEngine release];
     [testObject release];

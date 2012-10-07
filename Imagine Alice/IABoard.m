@@ -7,7 +7,6 @@
 //
 
 #import "IABoard.h"
-#import "IAGlobalConstants.h"
 
 static const NSUInteger kMaxBoardSize = 10;
 static const NSUInteger kMinBoardSize = 3;
@@ -44,34 +43,14 @@ static const NSUInteger kDefaultBoardSize = kMinBoardSize;
 
 // Currently, since the board is rectangular and does not contain holes, 
 // we can check the board position simply comparing coordinates with numRows and numCols.
-- (BOOL)isBoardPositionOnBoard:(IABoardPosition *)boardPosition
+- (BOOL)isBoardPositionOnBoard:(Vector2D *)boardPosition
 {
-    return (boardPosition.x >= 0 && boardPosition.x < self.numCols && boardPosition.y >= 0 && boardPosition.y < self.numRows);
+    return (boardPosition->x >= 0 && boardPosition->x < self.numCols && boardPosition->y >= 0 && boardPosition->y < self.numRows);
 }
 
-- (BOOL)isAbsolutePositionOnBoard:(IAAbsolutePosition *)absolutePosition
+- (BOOL)isAbsolutePositionOnBoard:(Vector2D *)absolutePosition
 {
-    return ([self isBoardPositionOnBoard:[[self class] boardPositionForAbsolutePosition:absolutePosition]]);
-}
-
-// Determines the position in board coordinates for a given absolute position
-+ (IABoardPosition *)boardPositionForAbsolutePosition:(IAAbsolutePosition *)absolutePosition
-{
-    IABoardPosition *boardPosition = [[[IABoardPosition alloc] init] autorelease];
-    
-    // Absolute coordinate z is treated as equal to board coordinate x,
-    // if it meets the condition:
-    // (x - epsilon) < z < (x + 1 - epsilon)
-    if (fabs(ceil(absolutePosition.x) - absolutePosition.x) < EPSILON)
-        boardPosition.x = (NSInteger)ceil(absolutePosition.x);
-    else
-        boardPosition.x = (NSInteger)floor(absolutePosition.x);
-    
-    if (fabs(ceil(absolutePosition.y) - absolutePosition.y) < EPSILON) 
-        boardPosition.y = (NSInteger)ceil(absolutePosition.y);
-    else
-        boardPosition.y = (NSInteger)floor(absolutePosition.y);
-    return boardPosition;
+    return ([self isBoardPositionOnBoard:[absolutePosition intValues]]);
 }
 
 @end

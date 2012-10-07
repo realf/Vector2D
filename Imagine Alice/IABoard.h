@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IAAbsolutePosition.h"
-#import "IABoardPosition.h"
+#import "Vector2D.h"
 
 /// Class IABoard represents the game board. It is responsible for operations
 /// with board coordinates.
@@ -22,12 +21,9 @@
 - (id)initWithNumCols:(NSUInteger)numCols numRows:(NSUInteger)numRows;
 
 // Checks if given absolute position is on the board
-- (BOOL)isAbsolutePositionOnBoard:(IAAbsolutePosition *)absolutePosition;
+- (BOOL)isAbsolutePositionOnBoard:(Vector2D *)absolutePosition;
 
 // Checks if given position (in board coordinates) is on the board
-- (BOOL)isBoardPositionOnBoard:(IABoardPosition *)boardPosition;
-
-// Converts absolute coordinates to board coordinates
-+ (IABoardPosition *)boardPositionForAbsolutePosition:(IAAbsolutePosition *)absolutePosition;
+- (BOOL)isBoardPositionOnBoard:(Vector2D *)boardPosition;
 
 @end

@@ -17,9 +17,9 @@
 
 @interface IAHistoryPoint : NSObject
 
-- (void)addObjectToHistoryPoint:(id<IAHistoryPointProtocol>)object;
+- (void)addObjectToHistoryPoint:(id<IAHistoryPointProtocol, NSCopying>)object;
 
 // Gets the object with a given name.
-- (id<IAHistoryPointProtocol>)objectWithName:(NSString *)name;
+- (id<IAHistoryPointProtocol, NSCopying>)objectWithName:(NSString *)name;
 
 @end

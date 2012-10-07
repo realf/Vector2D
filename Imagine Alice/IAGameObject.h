@@ -7,16 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IAAbsolutePosition.h"
+#import "Vector2D.h"
 #import "IAHistoryPoint.h"
 
 /// Class IAGameObject represents objects in the game.
 
-@interface IAGameObject : NSObject <IAHistoryPointProtocol>
+@interface IAGameObject : NSObject <IAHistoryPointProtocol, NSCopying>
 
 @property (retain, nonatomic) NSMutableString *name;
-@property (retain, nonatomic) IAAbsolutePosition *absolutePosition;
+@property (retain, nonatomic) Vector2D *absolutePosition;
+@property (retain, nonatomic) NSMutableArray *availableMoves;
 
-- (id)initWithName:(NSString *)name absolutePosition:(IAAbsolutePosition *)absolutePosition;
+- (id)initWithName:(NSString *)name absolutePosition:(Vector2D *)position
+    availableMoves:(NSArray *)moves;
 
 @end

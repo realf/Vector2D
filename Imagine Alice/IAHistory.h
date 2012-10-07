@@ -18,10 +18,10 @@
 - (void)addHistoryPoint:(IAHistoryPoint *)historyPoint;
 
 // We can get objects by their names.
-- (IAGameObject *)gameObjectWithName:(NSString *)name atHistoryPointIndex:(NSUInteger)historyPointIndex;
+- (IAGameObject *)gameObject:(IAGameObject *)object atHistoryPointWithIndex:(NSUInteger)index;
 
 // We can also get objects at the last history point
-- (IAGameObject *)gameObjectAtLastHistoryPointWithObjectName:(NSString *)name;
+- (IAGameObject *)gameObjectAtPreviousHistoryPoint:(IAGameObject *)object;
 
 - (void)clear;
 

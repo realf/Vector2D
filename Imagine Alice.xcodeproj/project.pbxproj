@@ -8,18 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		040AF38315D711560046A0B5 /* IAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040AF38115D711560046A0B5 /* IAViewController.xib */; };
-		040AF39A15D761000046A0B5 /* IAAbsolutePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39915D761000046A0B5 /* IAAbsolutePosition.m */; };
-		040AF39D15D761CF0046A0B5 /* IAMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39C15D761CF0046A0B5 /* IAMove.m */; };
 		04101DC615E43FEC006FB070 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04101DC515E43FEC006FB070 /* SenTestingKit.framework */; };
 		04101DC715E43FEC006FB070 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
 		04101DC815E43FEC006FB070 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976715CF4A5700E70EFC /* Foundation.framework */; };
-		04101DD815E4425A006FB070 /* IAAbsolutePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39915D761000046A0B5 /* IAAbsolutePosition.m */; };
 		04101DE015E44A19006FB070 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
 		04101DE115E44A19006FB070 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976715CF4A5700E70EFC /* Foundation.framework */; };
 		04101DE715E44A19006FB070 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04101DE515E44A19006FB070 /* InfoPlist.strings */; };
 		04101DEA15E44A19006FB070 /* IABoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04101DE915E44A19006FB070 /* IABoardTests.m */; };
 		04101DEF15E44B31006FB070 /* IABoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB34B915E2E16F006EA792 /* IABoard.m */; };
-		04101DF015E455B7006FB070 /* IAAbsolutePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39915D761000046A0B5 /* IAAbsolutePosition.m */; };
 		041C976615CF4A5700E70EFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
 		041C976815CF4A5700E70EFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976715CF4A5700E70EFC /* Foundation.framework */; };
 		041C976A15CF4A5700E70EFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976915CF4A5700E70EFC /* CoreGraphics.framework */; };
@@ -28,16 +24,11 @@
 		041C977615CF4A5700E70EFC /* IAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977515CF4A5700E70EFC /* IAAppDelegate.m */; };
 		041C977915CF4A5800E70EFC /* IAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C977815CF4A5800E70EFC /* IAViewController.m */; };
 		042F9A2C15EECD2300B737A3 /* IAGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912915EE692A00FE9410 /* IAGameObject.m */; };
-		042F9A2E15EECD2B00B737A3 /* IAAbsolutePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39915D761000046A0B5 /* IAAbsolutePosition.m */; };
-		042F9A2F15EECD3100B737A3 /* IAMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39C15D761CF0046A0B5 /* IAMove.m */; };
 		042F9A3015EECD4400B737A3 /* IABoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB34B915E2E16F006EA792 /* IABoard.m */; };
 		0433D4AB16064FE800568F3D /* IAHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C63771605FC2700763717 /* IAHistory.m */; };
 		0433D4AD16064FF700568F3D /* IAHistoryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C63731605F87F00763717 /* IAHistoryPoint.m */; };
 		043C63741605F87F00763717 /* IAHistoryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C63731605F87F00763717 /* IAHistoryPoint.m */; };
 		043C63781605FC2700763717 /* IAHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C63771605FC2700763717 /* IAHistory.m */; };
-		043C637B1606002B00763717 /* IABoardPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C637A1606002A00763717 /* IABoardPosition.m */; };
-		043C638516061FC800763717 /* IABoardPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C637A1606002A00763717 /* IABoardPosition.m */; };
-		043C638616061FC900763717 /* IABoardPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C637A1606002A00763717 /* IABoardPosition.m */; };
 		045F233E160BCD030036E399 /* IARuleEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39F15D762950046A0B5 /* IARuleEngine.m */; };
 		04A0912015EE66CF00FE9410 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A0911A15EE66CF00FE9410 /* InfoPlist.strings */; };
 		04A0912115EE66CF00FE9410 /* IAGameObjectTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A0911C15EE66CF00FE9410 /* IAGameObjectTests-Info.plist */; };
@@ -53,7 +44,6 @@
 		04A0913F15EE965900FE9410 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A0913D15EE965900FE9410 /* InfoPlist.strings */; };
 		04A0914215EE965900FE9410 /* IATorpedoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0914115EE965900FE9410 /* IATorpedoTests.m */; };
 		04A0914715EE986E00FE9410 /* IATorpedo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912E15EE763000FE9410 /* IATorpedo.m */; };
-		04A0914815EE990400FE9410 /* IAAbsolutePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AF39915D761000046A0B5 /* IAAbsolutePosition.m */; };
 		04A0914915EE990900FE9410 /* IAGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0912915EE692A00FE9410 /* IAGameObject.m */; };
 		04A0915015EEB21E00FE9410 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04101DC515E43FEC006FB070 /* SenTestingKit.framework */; };
 		04A0915115EEB21E00FE9410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C976515CF4A5700E70EFC /* UIKit.framework */; };
@@ -67,14 +57,14 @@
 		3A89A546829B421FBBEB10E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B2998C391441D682F98D3D /* libPods.a */; };
 		6E6FDB54914D4EB8B24C4A6B /* libPods-IARuleEngineTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDBFFFA2781248E8A356B602 /* libPods-IARuleEngineTests.a */; };
 		75168FCB1620FB9B00A4FED1 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 75168FCA1620FB9B00A4FED1 /* Vector2D.m */; };
+		75168FD11621738D00A4FED1 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 75168FCA1620FB9B00A4FED1 /* Vector2D.m */; };
+		75168FD2162174F800A4FED1 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 75168FCA1620FB9B00A4FED1 /* Vector2D.m */; };
+		75168FD31621751000A4FED1 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 75168FCA1620FB9B00A4FED1 /* Vector2D.m */; };
+		75168FD41621765300A4FED1 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 75168FCA1620FB9B00A4FED1 /* Vector2D.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		040AF38215D711560046A0B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IAViewController.xib; sourceTree = "<group>"; };
-		040AF39815D761000046A0B5 /* IAAbsolutePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAbsolutePosition.h; sourceTree = "<group>"; };
-		040AF39915D761000046A0B5 /* IAAbsolutePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAbsolutePosition.m; sourceTree = "<group>"; };
-		040AF39B15D761CF0046A0B5 /* IAMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAMove.h; sourceTree = "<group>"; };
-		040AF39C15D761CF0046A0B5 /* IAMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAMove.m; sourceTree = "<group>"; };
 		040AF39E15D762950046A0B5 /* IARuleEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IARuleEngine.h; sourceTree = "<group>"; };
 		040AF39F15D762950046A0B5 /* IARuleEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IARuleEngine.m; sourceTree = "<group>"; };
 		04101DC415E43FEC006FB070 /* IAGameObjectTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IAGameObjectTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,8 +91,6 @@
 		043C63731605F87F00763717 /* IAHistoryPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAHistoryPoint.m; sourceTree = "<group>"; };
 		043C63761605FC2600763717 /* IAHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAHistory.h; sourceTree = "<group>"; };
 		043C63771605FC2700763717 /* IAHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAHistory.m; sourceTree = "<group>"; };
-		043C63791606002A00763717 /* IABoardPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IABoardPosition.h; sourceTree = "<group>"; };
-		043C637A1606002A00763717 /* IABoardPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IABoardPosition.m; sourceTree = "<group>"; };
 		043C637C160619E700763717 /* IAGlobalConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAGlobalConstants.h; sourceTree = "<group>"; };
 		04A0911B15EE66CF00FE9410 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04A0911C15EE66CF00FE9410 /* IAGameObjectTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IAGameObjectTests-Info.plist"; sourceTree = "<group>"; };
@@ -258,16 +246,10 @@
 		041C976B15CF4A5700E70EFC /* Imagine Alice */ = {
 			isa = PBXGroup;
 			children = (
-				75168FC91620FB9B00A4FED1 /* Vector2D.h */,
-				75168FCA1620FB9B00A4FED1 /* Vector2D.m */,
-				040AF39815D761000046A0B5 /* IAAbsolutePosition.h */,
-				040AF39915D761000046A0B5 /* IAAbsolutePosition.m */,
 				041C977415CF4A5700E70EFC /* IAAppDelegate.h */,
 				041C977515CF4A5700E70EFC /* IAAppDelegate.m */,
 				04FB34B815E2E16F006EA792 /* IABoard.h */,
 				04FB34B915E2E16F006EA792 /* IABoard.m */,
-				043C63791606002A00763717 /* IABoardPosition.h */,
-				043C637A1606002A00763717 /* IABoardPosition.m */,
 				04A0912815EE692A00FE9410 /* IAGameObject.h */,
 				04A0912915EE692A00FE9410 /* IAGameObject.m */,
 				043C637C160619E700763717 /* IAGlobalConstants.h */,
@@ -275,8 +257,6 @@
 				043C63771605FC2700763717 /* IAHistory.m */,
 				043C63721605F87F00763717 /* IAHistoryPoint.h */,
 				043C63731605F87F00763717 /* IAHistoryPoint.m */,
-				040AF39B15D761CF0046A0B5 /* IAMove.h */,
-				040AF39C15D761CF0046A0B5 /* IAMove.m */,
 				040AF39E15D762950046A0B5 /* IARuleEngine.h */,
 				040AF39F15D762950046A0B5 /* IARuleEngine.m */,
 				04A0912D15EE763000FE9410 /* IATorpedo.h */,
@@ -285,6 +265,8 @@
 				041C977815CF4A5800E70EFC /* IAViewController.m */,
 				040AF38115D711560046A0B5 /* IAViewController.xib */,
 				041C976C15CF4A5700E70EFC /* Supporting Files */,
+				75168FC91620FB9B00A4FED1 /* Vector2D.h */,
+				75168FCA1620FB9B00A4FED1 /* Vector2D.m */,
 			);
 			path = "Imagine Alice";
 			sourceTree = "<group>";
@@ -620,9 +602,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A0912715EE688C00FE9410 /* IAGameObjectTests.m in Sources */,
-				04101DD815E4425A006FB070 /* IAAbsolutePosition.m in Sources */,
 				04A0912B15EE692A00FE9410 /* IAGameObject.m in Sources */,
 				04A0913015EE763100FE9410 /* IATorpedo.m in Sources */,
+				75168FD11621738D00A4FED1 /* Vector2D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,8 +614,7 @@
 			files = (
 				04101DEA15E44A19006FB070 /* IABoardTests.m in Sources */,
 				04101DEF15E44B31006FB070 /* IABoard.m in Sources */,
-				04101DF015E455B7006FB070 /* IAAbsolutePosition.m in Sources */,
-				043C638516061FC800763717 /* IABoardPosition.m in Sources */,
+				75168FD41621765300A4FED1 /* Vector2D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,14 +626,11 @@
 				041C977615CF4A5700E70EFC /* IAAppDelegate.m in Sources */,
 				041C977915CF4A5800E70EFC /* IAViewController.m in Sources */,
 				04FF96D515D2174200C46F7C /* CocoaLumberjackCustomFormatter.m in Sources */,
-				040AF39A15D761000046A0B5 /* IAAbsolutePosition.m in Sources */,
-				040AF39D15D761CF0046A0B5 /* IAMove.m in Sources */,
 				04FB34BA15E2E16F006EA792 /* IABoard.m in Sources */,
 				04A0912A15EE692A00FE9410 /* IAGameObject.m in Sources */,
 				04A0912F15EE763100FE9410 /* IATorpedo.m in Sources */,
 				043C63741605F87F00763717 /* IAHistoryPoint.m in Sources */,
 				043C63781605FC2700763717 /* IAHistory.m in Sources */,
-				043C637B1606002B00763717 /* IABoardPosition.m in Sources */,
 				045F233E160BCD030036E399 /* IARuleEngine.m in Sources */,
 				75168FCB1620FB9B00A4FED1 /* Vector2D.m in Sources */,
 			);
@@ -664,8 +642,8 @@
 			files = (
 				04A0914215EE965900FE9410 /* IATorpedoTests.m in Sources */,
 				04A0914715EE986E00FE9410 /* IATorpedo.m in Sources */,
-				04A0914815EE990400FE9410 /* IAAbsolutePosition.m in Sources */,
 				04A0914915EE990900FE9410 /* IAGameObject.m in Sources */,
+				75168FD31621751000A4FED1 /* Vector2D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,12 +654,10 @@
 				04A0915B15EEB21E00FE9410 /* IARuleEngineTests.m in Sources */,
 				04A0916015EEB23800FE9410 /* IARuleEngine.m in Sources */,
 				042F9A2C15EECD2300B737A3 /* IAGameObject.m in Sources */,
-				042F9A2E15EECD2B00B737A3 /* IAAbsolutePosition.m in Sources */,
-				042F9A2F15EECD3100B737A3 /* IAMove.m in Sources */,
 				042F9A3015EECD4400B737A3 /* IABoard.m in Sources */,
-				043C638616061FC900763717 /* IABoardPosition.m in Sources */,
 				0433D4AB16064FE800568F3D /* IAHistory.m in Sources */,
 				0433D4AD16064FF700568F3D /* IAHistoryPoint.m in Sources */,
+				75168FD2162174F800A4FED1 /* Vector2D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

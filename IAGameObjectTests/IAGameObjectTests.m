@@ -30,16 +30,16 @@
     IAGameObject *testCharacter = [[IAGameObject alloc] init];
     STAssertNotNil(testCharacter, @"testCharacter is nil");
     STAssertEqualObjects(testCharacter.name, @"Default Name", @"Wrong default name");
-    STAssertEqualObjects(testCharacter.absolutePosition, [IAAbsolutePosition absolutePositionWithX:0.0 y:0.0], @"Wrong default position");
+    STAssertEqualObjects(testCharacter.absolutePosition, [Vector2D withX:0.0 Y:0.0], @"Wrong default position");
     [testCharacter release];
 }
 
 - (void)testInitWithNamePosition
 {
-    IAGameObject *testCharacter = [[IAGameObject alloc] initWithName:@"Alice" absolutePosition:[IAAbsolutePosition absolutePositionWithX:1 y:1]];
+    IAGameObject *testCharacter = [[IAGameObject alloc] initWithName:@"Alice" absolutePosition:[Vector2D withX:1.0 Y:1.0] availableMoves:nil];
     STAssertNotNil(testCharacter, @"testCharacter is nil");
     STAssertEqualObjects(testCharacter.name, @"Alice", @"Wrong default name");
-    STAssertEqualObjects(testCharacter.absolutePosition, [IAAbsolutePosition absolutePositionWithX:1.0 y:1.0], @"Wrong default position");
+    STAssertEqualObjects(testCharacter.absolutePosition, [Vector2D withX:1.0 Y:1.0], @"Wrong default position");
     [testCharacter release];
 }
 

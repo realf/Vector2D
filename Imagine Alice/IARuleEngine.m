@@ -7,8 +7,7 @@
 //
 
 #import "IARuleEngine.h"
-#import "IABoard.h"
-#import "IAMove.h"
+#import "Vector2D.h"
 #import "DDLog.h"
 
 #ifdef DEBUG
@@ -47,7 +46,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 {
     [self loadLevel];
     [self saveHistory];
-    DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+    DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
     // other initializations here...
 }
 
@@ -68,10 +67,15 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (void)loadLevel
 {
     // Put Alice to the center
-    IAGameObject *alice = [[IAGameObject alloc] initWithName:@"Alice" absolutePosition:[IAAbsolutePosition absolutePositionWithX:self.board.numCols/2 y:self.board.numRows/2]];
+    Vector2D *right = [[Vector2D xAxis] copy];
+    Vector2D *left = [[[Vector2D xAxis] copy] mult:-1.0];
+    Vector2D *up = [[Vector2D yAxis] copy];
+    Vector2D *down = [[[Vector2D yAxis] copy] mult:-1.0];
+    NSArray *aliceMoves = @[right, left, up, down];
+    IAGameObject *alice = [[IAGameObject alloc] initWithName:@"Alice" absolutePosition:[Vector2D withX:self.board.numCols/2 Y:self.board.numRows/2] availableMoves:aliceMoves];
     [self addGameObject:alice];
     [alice release];
-    DDLogInfo(@"Let's play! Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+    DDLogInfo(@"Let's play! Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
     
     self.isGameOver = NO;
 }
@@ -80,12 +84,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (void)doComputerMoves
 {
     // Let the computer make his move
-    IAAbsolutePosition *nextAlicePosition = [self absolutePositionAfterRandomMoveFromAbsolutePosition:[[self.gameObjects objectForKey:@"Alice"] absolutePosition]];
-    [[self.gameObjects objectForKey:@"Alice"] setAbsolutePosition:nextAlicePosition];
-    
-    DDLogInfo(@"iPhone moves to (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+    [self doRandomMoveForGameObject:self.gameObjects[@"Alice"]];    
+    DDLogInfo(@"iPhone moves to (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
     [self saveHistory];
-    DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+    DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
 }
 
 #warning "Stub method"
@@ -95,26 +97,26 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     if (!self.isGameOver && [self.gameObjects objectForKey:@"Alice"])
     {
         if ([direction isEqualToString:@"Up"])
-            [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y += 1.0;
+            [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y += 1.0;
         else if ([direction isEqualToString:@"Down"])
-            [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y -= 1.0;
+            [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y -= 1.0;
         else if ([direction isEqualToString:@"Right"])
-            [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x += 1.0;
+            [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x += 1.0;
         else if ([direction isEqualToString:@"Left"])
-            [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x -= 1.0;
+            [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x -= 1.0;
         
         // If Alice is inside the board
         if ([self.board isAbsolutePositionOnBoard:[[self.gameObjects objectForKey:@"Alice"] absolutePosition]])
         {
-            DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%f, %f)", [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] x], [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] y]]);
+            DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y]);
             [self saveHistory];
-            DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+            DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
             
             [self doComputerMoves];
         }
         else
         {
-            DDLogInfo(@"Game over! Alice position is (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition].x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition].y);
+            DDLogInfo(@"Game over! Alice position is (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
             
             //// TODO add notification about the end of game
             
@@ -151,65 +153,66 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self.gameObjects removeObjectForKey:gameObject.name];
 }
 
-- (NSArray *)legalMovesForAbsolutePosition:(IAAbsolutePosition *)absolutePosition
+- (NSMutableArray *)allowedMovesForGameObject:(IAGameObject *)object
 {
-    NSMutableArray *legalMoves = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *allowedMoves = [[[NSMutableArray alloc] init] autorelease];
     
     // If we have more complicated rules for different characters, we should use them here
-    IAMove *moveUp = [IAMove moveByAbsoluteDeltaX:0.0 deltaY:1.0 moveDescription:@"Up"];
-    IAMove *moveDown = [IAMove moveByAbsoluteDeltaX:0.0 deltaY:-1.0 moveDescription:@"Down"];
-    IAMove *moveRight = [IAMove moveByAbsoluteDeltaX:1.0 deltaY:0.0 moveDescription:@"Right"];
-    IAMove *moveLeft = [IAMove moveByAbsoluteDeltaX:-1.0 deltaY:0.0 moveDescription:@"Left"];
     
-    IAAbsolutePosition *absolutePositionAfterMove = [[IAAbsolutePosition alloc] init];
+    Vector2D *absolutePositionAfterMove = [Vector2D zero];
     
-    // Search for all possible moves by checking the position on the board after each move
-    absolutePositionAfterMove.y = absolutePosition.y + moveUp.deltaY;
-    if (YES == [self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
+    for (Vector2D *move in [object availableMoves])
     {
-        [legalMoves addObject:moveUp];
+        // Check if the position is on the board after this move
+        absolutePositionAfterMove = [[object absolutePosition] add:move];
+        if ([self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
+        {
+            [allowedMoves addObject:move];
+        }
     }
-    
-    absolutePositionAfterMove.y = absolutePosition.y + moveDown.deltaY;
-    if (YES == [self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
-    {
-        [legalMoves addObject:moveDown];
-    }
-    
-    absolutePositionAfterMove.y = absolutePosition.y;
-    absolutePositionAfterMove.x = absolutePosition.x + moveRight.deltaX;
-    if (YES == [self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
-    {
-        [legalMoves addObject:moveRight];
-    }
-    
-    absolutePositionAfterMove.x = absolutePosition.x + moveLeft.deltaX;
-    if (YES == [self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
-    {
-        [legalMoves addObject:moveLeft];
-    }
-    
-    [absolutePositionAfterMove release];
-    return legalMoves;
+    return allowedMoves;
 }
 
-- (IAAbsolutePosition *)absolutePositionAfterRandomMoveFromAbsolutePosition:(IAAbsolutePosition *)absolutePosition
+- (NSMutableArray *)deniedMovesForGameObject:(IAGameObject *)object
 {
-    NSArray *legalMoves = [self legalMovesForAbsolutePosition:absolutePosition];
-    NSUInteger numberOfLegalMoves = [legalMoves count];
-    NSAssert(numberOfLegalMoves > 0, @"Cannot make a legal move");
-    NSInteger randomMoveNumber = arc4random_uniform(numberOfLegalMoves);
-    NSAssert(randomMoveNumber >= 0 && randomMoveNumber < numberOfLegalMoves, @"randomMoveNumber is out of range");
+    NSMutableArray *deniedMoves = [[[NSMutableArray alloc] init] autorelease];
     
-    IAAbsolutePosition *nextPosition = [[[IAAbsolutePosition alloc] init] autorelease];
+    // If we have more complicated rules for different characters, we should use them here
     
-    IAMove *move = [legalMoves objectAtIndex:randomMoveNumber];
-    nextPosition.x = absolutePosition.x + [move deltaX];
-    nextPosition.y = absolutePosition.y + [move deltaY];
+    Vector2D *absolutePositionAfterMove = [Vector2D zero];
+    
+    for (Vector2D *move in [object availableMoves])
+    {
+        absolutePositionAfterMove = [[[object absolutePosition] copy] add:move];
+        // Check if we do not go back
+        if ([[[self.history gameObject:object atHistoryPointWithIndex:0] absolutePosition] isEqual:absolutePositionAfterMove]
+        // Check if the position is not on the board after this move
+            || ![self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
+        {
+            [deniedMoves addObject:move];
+        }
+    }
+    return deniedMoves;
+}
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:IAObjectMovedNotification object:move.moveDescription];
-    
-    return nextPosition;
+- (void)doRandomMoveForGameObject:(IAGameObject *)object
+{
+    // We use "allow, deny" sequence.
+    // Implement here more complex logic if needed.
+    NSMutableArray *allowedMoves = [self allowedMovesForGameObject:object];
+    NSMutableArray *deniedMoves = [self deniedMovesForGameObject:object];
+    for (Vector2D *move in allowedMoves)
+    {
+        if ([deniedMoves containsObject:move])
+            [allowedMoves removeObject:move];
+    }
+    NSUInteger numberOfAllowedMoves = [allowedMoves count];
+    NSAssert(numberOfAllowedMoves > 0, @"No moves allowed");
+    NSInteger randomMoveNumber = arc4random_uniform(numberOfAllowedMoves);
+    NSAssert(randomMoveNumber >= 0 && randomMoveNumber < numberOfAllowedMoves, @"randomMoveNumber is out of range");
+    Vector2D *move = [allowedMoves objectAtIndex:randomMoveNumber];
+    [object.absolutePosition add:move];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IAObjectMovedNotification object:move];
 }
 
 @end

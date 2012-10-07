@@ -11,6 +11,6 @@
 @interface IATorpedo : IAGameObject
 
 @property (retain, nonatomic) NSNumber *speed;
-- (id)initWitName:(NSString *)name position:(IAAbsolutePosition *)position speed:(NSNumber *)speed;
+- (id)initWitName:(NSString *)name position:(Vector2D *)position speed:(NSNumber *)speed;
 
 @end

@@ -25,15 +25,15 @@
     return _historyPoint;
 }
 
-- (void)addObjectToHistoryPoint:(id<IAHistoryPointProtocol>)object
+- (void)addObjectToHistoryPoint:(id<IAHistoryPointProtocol, NSCopying>)object
 {
     if (object)
     {
-        [self.historyPoint setObject:object forKey:[object name]];
+        [self.historyPoint setObject:[object copyWithZone:NULL] forKey:[object name]];
     }
 }
 
-- (id<IAHistoryPointProtocol>)objectWithName:(NSString *)name
+- (id<IAHistoryPointProtocol, NSCopying>)objectWithName:(NSString *)name
 {
     return [self.historyPoint objectForKey:name];
 }

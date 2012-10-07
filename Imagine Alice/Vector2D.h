@@ -64,5 +64,6 @@
 - (double) dot:(Vector2D*)other;
 - (Vector2D*) perp;
 - (double) perpDot:(Vector2D*)other;
+- (Vector2D *) intValues;
 
 @end

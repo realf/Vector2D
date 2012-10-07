@@ -258,4 +258,9 @@ static Vector2D* xy = nil;
     return (x*other->y - y*other->x);
 }
 
+- (Vector2D *) intValues
+{
+    return [Vector2D withX:(NSInteger)x Y:(NSInteger)y];
+}
+
 @end

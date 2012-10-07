@@ -13,10 +13,11 @@ static NSString * const kDefaultObjectName = @"Default Name";
 @implementation IAGameObject
 
 @synthesize name = _name;
-@synthesize absolutePosition = _position;
+@synthesize absolutePosition = _absolutePosition;
+@synthesize availableMoves = _availableMoves;
 
-- (id)initWithName:(NSString *)name 
-  absolutePosition:(IAAbsolutePosition *)absolutePosition
+- (id)initWithName:(NSString *)name absolutePosition:(Vector2D *)position
+    availableMoves:(NSArray *)moves
 {
     if (self = [super init])
     {
@@ -24,23 +25,34 @@ static NSString * const kDefaultObjectName = @"Default Name";
             _name = [[NSMutableString alloc] initWithString:name];
         else 
             _name = [[NSMutableString alloc] initWithString:kDefaultObjectName];
-        
-        // If the absolute position is nil, we will automatically set _position to (0.0, 0.0)
-        _position = [[IAAbsolutePosition alloc] initWithAbsolutePosition:absolutePosition];
+        _absolutePosition = [position copy];
+        _availableMoves = [moves copy];
     }
     return self;
 }
 
 - (id)init
 {
-    return [self initWithName:nil absolutePosition:nil];
+    return [self initWithName:nil absolutePosition:[Vector2D zero] availableMoves:[NSArray array]];
 }
 
 - (void)dealloc
 {
-    [_position release];
+    [_availableMoves release];
+    [_absolutePosition release];
     [_name release];
     [super dealloc];
+}
+
+- (IAGameObject *)copyWithZone:(NSZone *)zone
+{
+    IAGameObject *object = [[IAGameObject alloc] initWithName:[self name] absolutePosition:[self absolutePosition] availableMoves:[self availableMoves]];
+    return object;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@: %@", self.name, self.absolutePosition.description];
 }
 
 @end

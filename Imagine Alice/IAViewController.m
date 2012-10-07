@@ -43,8 +43,8 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (void)objectMoved:(NSNotification *)notification
 {
-    NSString *moveDescription = [notification object];
-    self.screen.text = moveDescription;
+    //NSString *moveDescription = [notification object];
+    //self.screen.text = moveDescription;
 }
 
 - (void)didReceiveMemoryWarning
