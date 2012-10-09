@@ -15,6 +15,7 @@ static NSString * const kDefaultObjectName = @"Default Name";
 @synthesize name = _name;
 @synthesize absolutePosition = _absolutePosition;
 @synthesize availableMoves = _availableMoves;
+@synthesize historyOfPositions = _historyOfPositions;
 
 - (id)initWithName:(NSString *)name absolutePosition:(Vector2D *)position
     availableMoves:(NSArray *)moves
@@ -27,6 +28,7 @@ static NSString * const kDefaultObjectName = @"Default Name";
             _name = [[NSMutableString alloc] initWithString:kDefaultObjectName];
         _absolutePosition = [position copy];
         _availableMoves = [moves copy];
+        _historyOfPositions = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -38,6 +40,7 @@ static NSString * const kDefaultObjectName = @"Default Name";
 
 - (void)dealloc
 {
+    [_historyOfPositions release];
     [_availableMoves release];
     [_absolutePosition release];
     [_name release];
@@ -53,6 +56,16 @@ static NSString * const kDefaultObjectName = @"Default Name";
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@: %@", self.name, self.absolutePosition.description];
+}
+
+- (void)savePositionToHistory
+{
+    [self.historyOfPositions addObject:[self.absolutePosition copy]];
+}
+
+- (void)clearPositionHistory
+{
+    [self.historyOfPositions removeAllObjects];
 }
 
 @end

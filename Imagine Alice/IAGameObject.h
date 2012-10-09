@@ -17,8 +17,12 @@
 @property (retain, nonatomic) NSMutableString *name;
 @property (retain, nonatomic) Vector2D *absolutePosition;
 @property (retain, nonatomic) NSMutableArray *availableMoves;
+@property (retain, nonatomic) NSMutableArray *historyOfPositions;
 
 - (id)initWithName:(NSString *)name absolutePosition:(Vector2D *)position
     availableMoves:(NSArray *)moves;
+
+- (void)savePositionToHistory;
+- (void)clearPositionHistory;
 
 @end
