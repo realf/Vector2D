@@ -46,6 +46,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 {
     [self loadLevel];
     [self saveHistory];
+    for (NSString* key in self.gameObjects)
+        [self.gameObjects[key] savePositionToHistory];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:@"Let's play! Alice is in the centre"];
     DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
     // other initializations here...
 }
@@ -54,6 +58,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 {
     [self clearGameObjects];
     [self.history clear];
+    for (NSString* key in self.gameObjects)
+    {
+        [[self.gameObjects objectForKey:key] clearPositionHistory];
+    }
     self.isGameOver = YES;
 }
 
@@ -75,6 +83,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     IAGameObject *alice = [[IAGameObject alloc] initWithName:@"Alice" absolutePosition:[Vector2D withX:self.board.numCols/2 Y:self.board.numRows/2] availableMoves:aliceMoves];
     [self addGameObject:alice];
     [alice release];
+    
     DDLogInfo(@"Let's play! Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
     
     self.isGameOver = NO;
@@ -84,9 +93,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (void)doComputerMoves
 {
     // Let the computer make his move
-    [self doRandomMoveForGameObject:self.gameObjects[@"Alice"]];    
+    [self doRandomMoveForGameObject:self.gameObjects[@"Alice"]];
     DDLogInfo(@"iPhone moves to (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
+    
     [self saveHistory];
+    [[self.gameObjects objectForKey:@"Alice"] savePositionToHistory];
+    
     DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
 }
 
@@ -94,28 +106,52 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 // Stub.
 - (void)moveAliceToDirection:(NSString *)direction
 {
-    if (!self.isGameOver && [self.gameObjects objectForKey:@"Alice"])
+    [self moveGameObject:self.gameObjects[@"Alice"] toDirection:direction];
+}
+
+- (void)moveGameObject:(IAGameObject *)object toDirection:(NSString *)direction
+{
+    Vector2D *move = [Vector2D zero];
+    if (!self.isGameOver/* && [self.gameObjects objectForKey:@"Alice"]*/)
     {
         if ([direction isEqualToString:@"Up"])
-            [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y += 1.0;
+            [move add:[Vector2D withX:0.0 Y:1.0]];
         else if ([direction isEqualToString:@"Down"])
-            [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y -= 1.0;
+            [move add:[Vector2D withX:0.0 Y:-1.0]];
         else if ([direction isEqualToString:@"Right"])
-            [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x += 1.0;
+            [move add:[Vector2D withX:1.0 Y:0.0]];
         else if ([direction isEqualToString:@"Left"])
-            [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x -= 1.0;
+            [move add:[Vector2D withX:-1.0 Y:0.0]];
         
-        // If Alice is inside the board
-        if ([self.board isAbsolutePositionOnBoard:[[self.gameObjects objectForKey:@"Alice"] absolutePosition]])
+        // If the object will stay inside the board and will not
+        // return to its previous position after this turn
+        if (![self checkIfGameObject:object goesOutsideTheBoardAfterMove:move]
+            && ![self checkIfGameObject:object returnsBackAfterMove:move])
         {
-            DDLogInfo(@"%@", [NSString stringWithFormat:@"Alice position is (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y]);
+            // Move it
+            [object.absolutePosition add:move];
+            
+            DDLogInfo(@"%@", [NSString stringWithFormat:@"%@ position is (%f, %f)", object.name, object.absolutePosition->x, object.absolutePosition->y]);
             [self saveHistory];
-            DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
+            [[self.gameObjects objectForKey:@"Alice"] savePositionToHistory];
+            
+            DDLogInfo(@"History saved. Alice is at (%f, %f)", object.absolutePosition->x, object.absolutePosition->y);
             
             [self doComputerMoves];
         }
         else
         {
+            if ([self checkIfGameObject:object goesOutsideTheBoardAfterMove:move])
+            {
+                [object.absolutePosition add:move];
+                [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:[NSString stringWithFormat:@"Game over. You moved outside the board: %@", object.absolutePosition.description]];
+            }
+            if ([self checkIfGameObject:object returnsBackAfterMove:move])
+            {
+                [object.absolutePosition add:move];
+                [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:[NSString stringWithFormat:@"Game over. You returned to your previous position: %@", object.absolutePosition.description]];
+            }
+            
             DDLogInfo(@"Game over! Alice position is (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
             
             //// TODO add notification about the end of game
@@ -131,9 +167,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     if (self.gameObjects != nil)
     {
         IAHistoryPoint *historyPoint = [[IAHistoryPoint alloc] init];
-        for (id key in self.gameObjects)
+        for (NSString* key in self.gameObjects)
             [historyPoint addObjectToHistoryPoint:[self.gameObjects objectForKey:key]];
-
+        
 #warning "Think if we need to save the board"
         // TODO We don't save the board. Do we need to?
         [self.history addHistoryPoint:historyPoint];
@@ -153,24 +189,30 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self.gameObjects removeObjectForKey:gameObject.name];
 }
 
-- (NSMutableArray *)allowedMovesForGameObject:(IAGameObject *)object
+// Returns YES if object attempts to go back
+- (BOOL)checkIfGameObject:(IAGameObject*)object returnsBackAfterMove:(Vector2D *)move
 {
-    NSMutableArray *allowedMoves = [[[NSMutableArray alloc] init] autorelease];
+    Vector2D *absolutePositionAfterMove = [[object.absolutePosition copy] add:move];
     
-    // If we have more complicated rules for different characters, we should use them here
+    // Here we learn out, how many steps we did before. We expect the first element in
+    // object.historyOfPositions is its initial position
+    NSInteger steps = object.historyOfPositions.count;
     
-    Vector2D *absolutePositionAfterMove = [Vector2D zero];
+    Vector2D *absolutePositionAtPreviousMove = (steps > 1) ? object.historyOfPositions[steps - 2] : nil;
     
-    for (Vector2D *move in [object availableMoves])
-    {
-        // Check if the position is on the board after this move
-        absolutePositionAfterMove = [[object absolutePosition] add:move];
-        if ([self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
-        {
-            [allowedMoves addObject:move];
-        }
-    }
-    return allowedMoves;
+    if (absolutePositionAtPreviousMove != nil
+        && [absolutePositionAtPreviousMove isEqual:absolutePositionAfterMove])
+        return YES;
+
+    return NO;
+}
+
+// Returns YES if object is going to go outside the board
+- (BOOL)checkIfGameObject:(IAGameObject *)object goesOutsideTheBoardAfterMove:(Vector2D *)move
+{
+    Vector2D *absolutePositionAfterMove = [[object.absolutePosition copy] add:move];
+    // Check if the object's position is not on the board after this move
+    return (![self.board isAbsolutePositionOnBoard:absolutePositionAfterMove]);
 }
 
 - (NSMutableArray *)deniedMovesForGameObject:(IAGameObject *)object
@@ -179,40 +221,68 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     
     // If we have more complicated rules for different characters, we should use them here
     
-    Vector2D *absolutePositionAfterMove = [Vector2D zero];
+    //Vector2D *absolutePositionAfterMove = [Vector2D zero];
+    
+    // Here we learn out, how many steps we did before. We expect the first element in
+    // object.historyOfPositions is its initial position
+    //NSInteger steps = object.historyOfPositions.count;
     
     for (Vector2D *move in [object availableMoves])
     {
-        absolutePositionAfterMove = [[[object absolutePosition] copy] add:move];
-        // Check if we do not go back
-        if ([[[self.history gameObject:object atHistoryPointWithIndex:0] absolutePosition] isEqual:absolutePositionAfterMove]
-        // Check if the position is not on the board after this move
-            || ![self.board isAbsolutePositionOnBoard:absolutePositionAfterMove])
+        //absolutePositionAfterMove = [[[object absolutePosition] copy] add:move];
+        //Vector2D *absolutePositionAtPreviousMove = (steps > 1) ? object.historyOfPositions[steps - 2] : nil;
+        
+        // 1. Check if we do not go back
+        if ([self checkIfGameObject:object returnsBackAfterMove:move])
         {
-            [deniedMoves addObject:move];
+            if (![deniedMoves containsObject:move])
+                [deniedMoves addObject:move];
+        }
+        
+        // 2. Check if the object's position is not on the board after this move
+        if ([self checkIfGameObject:object goesOutsideTheBoardAfterMove:move])
+        {
+            if (![deniedMoves containsObject:move])
+                [deniedMoves addObject:move];
         }
     }
     return deniedMoves;
 }
 
+- (NSMutableArray *)availableMovesAfterApplyingRulesToGameObject:(IAGameObject*)object
+{
+    // We get available moves from object and then check if some of them
+    // are denied.
+    // Implement here more complex logic if needed.
+    NSMutableArray *availableMoves = object.availableMoves;
+    NSMutableArray *deniedMoves = [self deniedMovesForGameObject:object];
+    NSMutableArray *availableMinusDeniedMoves = [[[NSMutableArray alloc] init] autorelease];
+    for (Vector2D *move in availableMoves)
+    {
+        if (![deniedMoves containsObject:move])
+            [availableMinusDeniedMoves addObject:move];
+    }
+    return availableMinusDeniedMoves;
+}
+
 - (void)doRandomMoveForGameObject:(IAGameObject *)object
 {
-    // We use "allow, deny" sequence.
-    // Implement here more complex logic if needed.
-    NSMutableArray *allowedMoves = [self allowedMovesForGameObject:object];
-    NSMutableArray *deniedMoves = [self deniedMovesForGameObject:object];
-    for (Vector2D *move in allowedMoves)
+    NSMutableArray *availableMinusDeniedMoves = [self availableMovesAfterApplyingRulesToGameObject:object];
+    NSUInteger numberOfMoves = [availableMinusDeniedMoves count];
+
+    NSInteger randomNumber;
+    Vector2D *move;
+    if (numberOfMoves != 0)
     {
-        if ([deniedMoves containsObject:move])
-            [allowedMoves removeObject:move];
+        randomNumber= arc4random_uniform(numberOfMoves);
+        move = availableMinusDeniedMoves[randomNumber];
+        [object.absolutePosition add:move];
+        [[NSNotificationCenter defaultCenter] postNotificationName:IAObjectMovedNotification object:move];
     }
-    NSUInteger numberOfAllowedMoves = [allowedMoves count];
-    NSAssert(numberOfAllowedMoves > 0, @"No moves allowed");
-    NSInteger randomMoveNumber = arc4random_uniform(numberOfAllowedMoves);
-    NSAssert(randomMoveNumber >= 0 && randomMoveNumber < numberOfAllowedMoves, @"randomMoveNumber is out of range");
-    Vector2D *move = [allowedMoves objectAtIndex:randomMoveNumber];
-    [object.absolutePosition add:move];
-    [[NSNotificationCenter defaultCenter] postNotificationName:IAObjectMovedNotification object:move];
+    else
+    {
+        DDLogError(@"No moves available.\n%@", self.history);
+    }
 }
 
 @end
