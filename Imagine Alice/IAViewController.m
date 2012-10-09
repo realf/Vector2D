@@ -43,8 +43,20 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (void)objectMoved:(NSNotification *)notification
 {
-    //NSString *moveDescription = [notification object];
-    //self.screen.text = moveDescription;
+    NSString *moveDescription = [(Vector2D *)[notification object] intDescription];
+    if ([moveDescription isEqual:@"<-1, -0>"])
+        self.screen.text = @"AI goes left";
+    if ([moveDescription isEqual:@"<1, 0>"])
+        self.screen.text = @"AI goes right";
+    if ([moveDescription isEqual:@"<0, 1>"])
+        self.screen.text = @"AI goes up";
+    if ([moveDescription isEqual:@"<-0, -1>"])
+        self.screen.text = @"AI goes down";
+}
+
+- (void)gameStateChanged:(NSNotification *)notification
+{
+    self.screen.text = [notification object];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,6 +72,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     [super viewDidLoad];
     _ruleEngine = [[IARuleEngine alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(objectMoved:) name:IAObjectMovedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameStateChanged:) name:IAGameStateChangedNotification object:nil];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
