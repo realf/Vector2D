@@ -38,6 +38,14 @@
     return [self.historyPoint objectForKey:name];
 }
 
+- (NSString *)description
+{
+    NSMutableString *descriptionString = [NSMutableString stringWithString:@""];
+    for (NSString *hp in self.historyPoint)
+        [descriptionString appendFormat:@"%@\n", self.historyPoint[hp]];
+    return descriptionString;
+}
+
 -(void)dealloc
 {
     [_historyPoint release];

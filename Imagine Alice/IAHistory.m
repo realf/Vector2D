@@ -50,6 +50,14 @@
     return ([self gameObject:object atHistoryPointWithIndex:[self.history count] - 1]);
 }
 
+- (NSString *)description
+{
+    NSMutableString *descriptionString = [NSMutableString stringWithString:@"History:\n"];
+    for (IAHistoryPoint *hp in self.history)
+        [descriptionString appendFormat:@"<History point>\n%@</History point>\n\n", hp.description];
+    return descriptionString;
+}
+
 - (void)dealloc
 {
     [_history release];
