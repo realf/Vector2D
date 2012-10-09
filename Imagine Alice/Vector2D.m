@@ -152,6 +152,11 @@ static Vector2D* xy = nil;
     return [NSString stringWithFormat:@"<%f, %f>", x, y];
 }
 
+- (NSString*) intDescription
+{
+    return [NSString stringWithFormat:@"<%.0f, %.0f>", x, y];
+}
+
 - (double) length
 {
     return sqrt(x*x + y*y);

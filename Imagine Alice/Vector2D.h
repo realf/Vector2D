@@ -44,6 +44,7 @@
 - (Vector2D*) copyWithZone:(NSZone *)zone;
 
 - (NSString*) description;
+- (NSString*) intDescription;
 
 - (double) length;
 - (double) lengthSquared;
