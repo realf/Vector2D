@@ -12,6 +12,7 @@
 #import "IAHistory.h"
 
 static NSString * const IAObjectMovedNotification = @"IAObjectMovedNotification";
+static NSString * const IAGameStateChangedNotification = @"IAGameStateChangedNotification";
 
 /***
  Class IARuleEngine provides basic game rules. 
