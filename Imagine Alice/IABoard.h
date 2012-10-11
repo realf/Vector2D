@@ -23,7 +23,4 @@
 // Checks if given absolute position is on the board
 - (BOOL)isAbsolutePositionOnBoard:(Vector2D *)absolutePosition;
 
-// Checks if given position (in board coordinates) is on the board
-- (BOOL)isBoardPositionOnBoard:(Vector2D *)boardPosition;
-
 @end

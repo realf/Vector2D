@@ -27,7 +27,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 {
     if (self = [super init])
     {
-        _board = [[IABoard alloc] init];
+        _board = [[IABoard alloc] initWithNumCols:3 numRows:3];
         _gameObjects = [[NSMutableDictionary alloc] init];
         _history = [[IAHistory alloc] init];
     }
@@ -112,7 +112,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (void)moveGameObject:(IAGameObject *)object toDirection:(NSString *)direction
 {
     Vector2D *move = [Vector2D zero];
-    if (!self.isGameOver/* && [self.gameObjects objectForKey:@"Alice"]*/)
+    if (!self.isGameOver)
     {
         if ([direction isEqualToString:@"Up"])
             [move add:[Vector2D withX:0.0 Y:1.0]];
@@ -154,10 +154,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             
             DDLogInfo(@"Game over! Alice position is (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
             
-            //// TODO add notification about the end of game
-            
             [self stopGame];
-            //[self.theNewGameButton setHidden:NO];
         }
     }
 }
@@ -189,7 +186,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self.gameObjects removeObjectForKey:gameObject.name];
 }
 
-// Returns YES if object attempts to go back
+// Returns YES if the object attempts to go back
 - (BOOL)checkIfGameObject:(IAGameObject*)object returnsBackAfterMove:(Vector2D *)move
 {
     Vector2D *absolutePositionAfterMove = [[object.absolutePosition copy] add:move];
@@ -221,17 +218,8 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     
     // If we have more complicated rules for different characters, we should use them here
     
-    //Vector2D *absolutePositionAfterMove = [Vector2D zero];
-    
-    // Here we learn out, how many steps we did before. We expect the first element in
-    // object.historyOfPositions is its initial position
-    //NSInteger steps = object.historyOfPositions.count;
-    
     for (Vector2D *move in [object availableMoves])
     {
-        //absolutePositionAfterMove = [[[object absolutePosition] copy] add:move];
-        //Vector2D *absolutePositionAtPreviousMove = (steps > 1) ? object.historyOfPositions[steps - 2] : nil;
-        
         // 1. Check if we do not go back
         if ([self checkIfGameObject:object returnsBackAfterMove:move])
         {

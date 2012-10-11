@@ -42,15 +42,10 @@ static const NSUInteger kDefaultBoardSize = kMinBoardSize;
 }
 
 // Currently, since the board is rectangular and does not contain holes, 
-// we can check the board position simply comparing coordinates with numRows and numCols.
-- (BOOL)isBoardPositionOnBoard:(Vector2D *)boardPosition
-{
-    return (boardPosition->x >= 0 && boardPosition->x < self.numCols && boardPosition->y >= 0 && boardPosition->y < self.numRows);
-}
-
+// we can check the position simply comparing coordinates with numRows and numCols.
 - (BOOL)isAbsolutePositionOnBoard:(Vector2D *)absolutePosition
 {
-    return ([self isBoardPositionOnBoard:[absolutePosition intValues]]);
+    return (absolutePosition->x >= 0 && absolutePosition->x < self.numCols && absolutePosition->y >= 0 && absolutePosition->y < self.numRows);
 }
 
 @end

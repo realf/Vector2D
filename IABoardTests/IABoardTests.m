@@ -89,24 +89,4 @@
     [testBoard release];
 }
 
--(void)testBoardPositionForAbsolutePosition
-{
-    /*
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[Vector2D withX:1.5 Y:2.5]] x], 1, @"Wrong board position for absolute position");
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[Vector2D withX:1.0 Y:2.0]] x], 1, @"Wrong board position for absolute position");
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[Vector2D withX:0.9999999 Y:1.9999999]] x], 1, @"Wrong board position for absolute position");
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[Vector2D withX:1.0000001 Y:1.9999999]] x], 1, @"Wrong board position for absolute position");
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[Vector2D withX:1.5 Y:2.5]] y], 2, @"Wrong board position for absolute position");
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[Vector2D withX:1.0 Y:2.0]] y], 2, @"Wrong board position for absolute position");
-    STAssertEquals([[IABoard boardPositionForAbsolutePosition:[Vector2D withX:0.9999999 Y:2.0000001]] y], 2, @"Wrong board position for absolute position");*/
-}
-
-- (void)testIsBoardPositionOnBoard
-{
-    IABoard *testBoard = [[IABoard alloc] init];
-    STAssertTrue([testBoard isBoardPositionOnBoard:[Vector2D withX:1 Y:1]], @"Error in check if position is on the board");
-    STAssertFalse([testBoard isBoardPositionOnBoard:[Vector2D withX:-1 Y:-1]], @"Error in check if position is on the board");
-    [testBoard release];
-}
-
 @end
