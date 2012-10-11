@@ -45,13 +45,13 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 {
     NSString *moveDescription = [(Vector2D *)[notification object] intDescription];
     if ([moveDescription isEqual:@"<-1, -0>"])
-        self.screen.text = @"AI goes left";
+        self.screen.text = @"Computer goes left";
     if ([moveDescription isEqual:@"<1, 0>"])
-        self.screen.text = @"AI goes right";
+        self.screen.text = @"Computer goes right";
     if ([moveDescription isEqual:@"<0, 1>"])
-        self.screen.text = @"AI goes up";
+        self.screen.text = @"Computer goes up";
     if ([moveDescription isEqual:@"<-0, -1>"])
-        self.screen.text = @"AI goes down";
+        self.screen.text = @"Computer goes down";
 }
 
 - (void)gameStateChanged:(NSNotification *)notification

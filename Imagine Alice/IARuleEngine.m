@@ -49,7 +49,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     for (NSString* key in self.gameObjects)
         [self.gameObjects[key] savePositionToHistory];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:@"Let's play! Alice is in the centre"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:[NSString stringWithFormat:@"Let's play! Alice is on %@, board is %dX%d.", [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] intDescription], self.board.numCols, self.board.numRows]];
     DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
     // other initializations here...
 }
@@ -144,12 +144,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             if ([self checkIfGameObject:object goesOutsideTheBoardAfterMove:move])
             {
                 [object.absolutePosition add:move];
-                [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:[NSString stringWithFormat:@"Game over. You moved outside the board: %@", object.absolutePosition.description]];
+                [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:[NSString stringWithFormat:@"Game over. You moved outside the board: %@", object.absolutePosition.intDescription]];
             }
             if ([self checkIfGameObject:object returnsBackAfterMove:move])
             {
                 [object.absolutePosition add:move];
-                [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:[NSString stringWithFormat:@"Game over. You returned to your previous position: %@", object.absolutePosition.description]];
+                [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:[NSString stringWithFormat:@"Game over. You returned to your previous position: %@", object.absolutePosition.intDescription]];
             }
             
             DDLogInfo(@"Game over! Alice position is (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
