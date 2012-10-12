@@ -60,7 +60,7 @@ static NSString * const kDefaultObjectName = @"Default Name";
 
 - (void)savePositionToHistory
 {
-    [self.historyOfPositions addObject:[self.absolutePosition copy]];
+    [self.historyOfPositions addObject:[[self.absolutePosition copy] autorelease]];
 }
 
 - (void)clearPositionHistory

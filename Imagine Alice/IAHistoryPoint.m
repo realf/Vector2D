@@ -25,11 +25,11 @@
     return _historyPoint;
 }
 
-- (void)addObjectToHistoryPoint:(id<IAHistoryPointProtocol, NSCopying>)object
+- (void)addObjectToHistoryPoint:(id<IAHistoryPointProtocol>)object
 {
     if (object)
     {
-        [self.historyPoint setObject:[object copyWithZone:NULL] forKey:[object name]];
+        [self.historyPoint setObject:[[object copy] autorelease] forKey:[object name]];
     }
 }
 

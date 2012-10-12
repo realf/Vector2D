@@ -10,6 +10,7 @@
 
 @protocol IAHistoryPointProtocol <NSObject>
 - (NSString *)name;
+- (id)copy;
 @end
 
 /// Class IAHistoryPoint is used when we need to save the game state.

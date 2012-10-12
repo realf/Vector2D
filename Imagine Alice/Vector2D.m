@@ -45,22 +45,22 @@ BOOL areEqual(double a, double b)
 
 + (Vector2D*) add:(Vector2D*)v1 to:(Vector2D*)v2
 {
-    return [[[v1 copy] add:v2] autorelease];
+    return [[[v1 copy] autorelease] add:v2];
 }
 
 + (Vector2D*) sub:(Vector2D*)v1 with:(Vector2D*)v2
 {
-    return [[[v1 copy] sub:v2] autorelease];
+    return [[[v1 copy] autorelease] sub:v2];
 }
 
 + (Vector2D*) mult:(Vector2D*)v with:(double)scalar
 {
-    return [[[v copy] mult:scalar] autorelease];
+    return [[[v copy] autorelease] mult:scalar];
 }
 
 + (Vector2D*) div:(Vector2D*)v with:(double)scalar
 {
-    return [[[v copy] div:scalar] autorelease];
+    return [[[v copy] autorelease] div:scalar];
 }
 
 + (double) dot:(Vector2D*)v1 with:(Vector2D*)v2
@@ -255,7 +255,7 @@ static Vector2D* xy = nil;
 
 - (Vector2D*) perp
 {
-    return [Vector2D newWithX:-y Y:x];
+    return [[Vector2D newWithX:-y Y:x] autorelease];
 }
 
 - (double) perpDot:(Vector2D*)other

@@ -50,6 +50,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self.gameObjects[key] savePositionToHistory];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:IAGameStateChangedNotification object:[NSString stringWithFormat:@"Let's play! Alice is on %@, board is %dX%d.", [[[self.gameObjects objectForKey:@"Alice"] absolutePosition] intDescription], self.board.numCols, self.board.numRows]];
+    
     DDLogInfo(@"History saved. Alice is at (%f, %f)", [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->x, [[self.gameObjects objectForKey:@"Alice"] absolutePosition]->y);
     // other initializations here...
 }
@@ -75,11 +76,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (void)loadLevel
 {
     // Put Alice to the center
-    Vector2D *right = [[Vector2D xAxis] copy];
-    Vector2D *left = [[[Vector2D xAxis] copy] mult:-1.0];
-    Vector2D *up = [[Vector2D yAxis] copy];
-    Vector2D *down = [[[Vector2D yAxis] copy] mult:-1.0];
+    const Vector2D * const right = [Vector2D withX:1.0 Y:0.0];
+    const Vector2D * const left = [Vector2D withX:-1.0 Y:0.0];
+    const Vector2D * const up = [Vector2D withX:0.0 Y:1.0];
+    const Vector2D * const down = [Vector2D withX:0.0 Y:-1.0];
     NSArray *aliceMoves = @[right, left, up, down];
+    
     IAGameObject *alice = [[IAGameObject alloc] initWithName:@"Alice" absolutePosition:[Vector2D withX:self.board.numCols/2 Y:self.board.numRows/2] availableMoves:aliceMoves];
     [self addGameObject:alice];
     [alice release];
@@ -88,7 +90,6 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     
     self.isGameOver = NO;
 }
-
 
 - (void)doComputerMoves
 {
@@ -189,7 +190,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 // Returns YES if the object attempts to go back
 - (BOOL)checkIfGameObject:(IAGameObject*)object returnsBackAfterMove:(Vector2D *)move
 {
-    Vector2D *absolutePositionAfterMove = [[object.absolutePosition copy] add:move];
+    Vector2D *absolutePositionAfterMove = [[[object.absolutePosition copy] autorelease] add:move];
     
     // Here we learn out, how many steps we did before. We expect the first element in
     // object.historyOfPositions is its initial position
@@ -207,7 +208,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 // Returns YES if object is going to go outside the board
 - (BOOL)checkIfGameObject:(IAGameObject *)object goesOutsideTheBoardAfterMove:(Vector2D *)move
 {
-    Vector2D *absolutePositionAfterMove = [[object.absolutePosition copy] add:move];
+    Vector2D *absolutePositionAfterMove = [[[object.absolutePosition copy] autorelease] add:move];
     // Check if the object's position is not on the board after this move
     return (![self.board isAbsolutePositionOnBoard:absolutePositionAfterMove]);
 }
