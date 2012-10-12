@@ -168,8 +168,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         for (NSString* key in self.gameObjects)
             [historyPoint addObjectToHistoryPoint:[self.gameObjects objectForKey:key]];
         
-#warning "Think if we need to save the board"
-        // TODO We don't save the board. Do we need to?
+        // TODO: We don't save the board. Do we need to?
         [self.history addHistoryPoint:historyPoint];
         [historyPoint release];
     }

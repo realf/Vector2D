@@ -20,8 +20,6 @@ static NSString * const IAGameStateChangedNotification = @"IAGameStateChangedNot
  In future it will be able to load levels with custom rules for every level.
  ***/
 
-#warning "Implement proper history!"
-
 @interface IARuleEngine : NSObject
 
 // Contains current game objects
